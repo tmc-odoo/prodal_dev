@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_zone_tree" model="ir.ui.view">
+            <field name="name">prodal.zone.tree.view</field>
+            <field name="model">prodal.zone</field>
+            <field name="arch" type="xml">
+                <tree string="Zones">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_zone_form" model="ir.ui.view">
+            <field name="name">prodal.zone.form</field>
+            <field name="model">prodal.zone</field>
+            <field name="arch" type="xml">
+                <form string="Repair Order">
+                <sheet string="Zones">
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_zone" model="ir.actions.act_window">
+                <field name="name">Zones</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">prodal.zone</field>
+                <field name="view_mode">form,tree</field>
+        </record>
+
+        <record id="action_zone_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_zone_tree"/>
+            <field name="act_window_id" ref="action_zone"/>
+        </record>
+
+        <record id="action_zone_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_zone_form"/>
+            <field name="act_window_id" ref="action_zone"/>
+        </record>
+
+  
+            <!-- menu categories -->
+        
+            <menuitem name="Zones" id="prodal_menu_zones" parent="stock.menu_stock_root" groups="base.group_user"/>
+       
+            <!-- actions -->
+        
+            <menuitem name="Zones" id="menu_zones" parent="prodal_menu_zones"
+                    action="action_zone"/>
+       
+    </data>
+</odoo>

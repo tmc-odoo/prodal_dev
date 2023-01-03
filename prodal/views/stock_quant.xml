@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="stock_quant_prodal_tree_view_editable_inherit">
+        <field name="name">stock.quant.prodal.inherit</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='reserved_quantity']" position="after">
+                <field name="available_difference"/>
+                <field name="committed_qty" optional="hide" string="Pending to fulfill"/>
+                <field name="stock_max" optional="show"/>
+                <field name="stock_min" optional="show"/>
+                <field name="qty_to_produce" string="Qty to Produce" optional="show"/>
+            </xpath>
+            <field name="reserved_quantity" position="attributes">
+                <attribute name="optional"></attribute>
+            </field>
+        </field>
+        </record>
+
+        <record model="ir.ui.view" id="stock_quant_prodal_tree_view_inherit">
+        <field name="name">stock.quant.prodal.inherit</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='reserved_quantity']" position="after">
+                <field name="available_difference"/>
+                <field name="committed_qty" optional="hide" string="Pending to fulfill"/>
+                <field name="stock_max" optional="show"/>
+                <field name="stock_min" optional="show"/>
+                <field name="qty_to_produce" optional="show"/>
+            </xpath>
+            <field name="reserved_quantity" position="attributes">
+                <attribute name="optional"></attribute>
+            </field>
+        </field>
+        </record>
+
+        <record id="stock_quant_search_view_prodal" model="ir.ui.view">
+            <field name="name">stock.quant.search.view.prodal</field>
+            <field name="model">stock.quant</field>
+            <field name="inherit_id" ref="stock.quant_search_view"/>
+            <field name="arch" type="xml">
+            <xpath expr="//filter[@name='productgroup']" position="after">
+                <filter string ="Product Category" name="category" context="{'group_by':'categ_id'}"/>
+            </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

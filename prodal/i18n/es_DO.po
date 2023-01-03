@@ -1,0 +1,2589 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* prodal
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-26 20:31+0000\n"
+"PO-Revision-Date: 2022-10-26 20:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: prodal
+#: model:ir.actions.report,print_report_name:prodal.action_report_prodal_invoice_list
+msgid "'Invoice List - %s' % (object.name)"
+msgstr "'Listado de Facturas - %s' % (object.name)"
+
+#. module: prodal
+#: model:ir.actions.report,print_report_name:prodal.action_report_prodal_load_squaring
+msgid "'Load Squaring - %s' % (object.name)"
+msgstr "'Cuadre de Carga - %s' % (object.name)"
+
+#. module: prodal
+#: model:ir.actions.report,print_report_name:prodal.action_report_load_truck
+msgid "'Load Truck - %s' % (object.name)"
+msgstr "'Cargar Camión - %s' % (object.name)"
+
+#. module: prodal
+#: model:ir.actions.report,print_report_name:prodal.action_report_prodal_packing_list
+msgid "'Packing List - %s' % (object.name)"
+msgstr ""
+
+#. module: prodal
+#: model:ir.actions.report,print_report_name:prodal.action_report_prodal_internal_transfer
+msgid ""
+"'Prodal Internal Transfer - %s - %s' % (object.partner_id.name or '', "
+"object.name)"
+msgstr ""
+
+#. module: prodal
+#: model:ir.actions.report,print_report_name:prodal.action_report_prodal_transfer
+msgid ""
+"'Prodal Transfers - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+"'Transferencias Prodal - %s - %s' % (object.partner_id.name or '', "
+"object.name)"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "** PRESALES **"
+msgstr "** PREVENTAS **"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "**OF"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid ""
+", declaro bajo la fe del juramento y reconozco haber recibido de mi empleador \n"
+"                                        <strong>Procesadora de Alimentos Prodal S. A.</strong>, en calidad, cantidad y peso correcto la mercancía listada en este documento, de la cual asumo toda la responsabilidad \n"
+"                                        económica y material por un valor de"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid ""
+", declaro bajo la fe del juramento y reconozco haber recibido de mi empleador \n"
+"                                    <strong>Procesadora de Alimentos Prodal S. A.</strong>, en calidad, cantidad y peso correcto la mercancía listada en este documento, de la cual asumo toda la responsabilidad \n"
+"                                    económica y material por un valor de"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid ""
+", haciéndome así responsable y declarando que en caso de pérdida o mal uso de la misma pagaré con mis bienes \n"
+"                                        económicos, físicos y materiales presentes y futuros el valor total de la misma, pudiendo ser reclamados dichos valores al momento que disponga mi empleador.\n"
+"                                        Siendo así responsable antes, durante y luego del proceso de entrega a los clientes y/o almacenes de <strong>Procesadora de Alimentos Prodal S. A.</strong>, devolviendo la cantidad \n"
+"                                        de mercancía no entregada y/o la cantidad de dinero que entregaré en efectivo, cheques, depósitos bancarios, transferencias y/o facturas de crédito debidamente firmada \n"
+"                                        y selladas por los clientes y/o responsable de almacén, los cuales son propiedad única y exclusiva de <strong>Procesadora de Alimentos Prodal S. A.</strong>, la presente declaración \n"
+"                                        se realiza para dar fiel cumplimiento a las disposiciones de los artículos 44 y 45 del Código de Trabajo."
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid ""
+", haciéndome así responsable y declarando que en caso de pérdida o mal uso de la misma pagaré con mis bienes \n"
+"                                    económicos, físicos y materiales presentes y futuros el valor total de la misma, pudiendo ser reclamados dichos valores al momento que disponga mi empleador.\n"
+"                                    Siendo así responsable antes, durante y luego del proceso de entrega a los clientes y/o almacenes de <strong>Procesadora de Alimentos Prodal S. A.</strong>, devolviendo la cantidad \n"
+"                                    de mercancía no entregada y/o la cantidad de dinero que entregaré en efectivo, cheques, depósitos bancarios, transferencias y/o facturas de crédito debidamente firmada \n"
+"                                    y selladas por los clientes y/o responsable de almacén, los cuales son propiedad única y exclusiva de <strong>Procesadora de Alimentos Prodal S. A.</strong>, la presente declaración \n"
+"                                    se realiza para dar fiel cumplimiento a las disposiciones de los artículos 44 y 45 del Código de Trabajo."
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid ", portador de la cédula de identidad personal número"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "1      X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "1 - Client doesn't have money"
+msgstr "1 - Cliente no tiene dinero"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "10     X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "10 - Wet Product"
+msgstr "10 - Producto Mojado"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "100     X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "1000    X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "11 - Incomplete Product"
+msgstr "11 - Producto Incompleto"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "12 - Truck Cannot Enter Location"
+msgstr "12 - Camión no entra al sector"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "13 - Dangerous Area"
+msgstr "13 - Zona Peligrosa"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "14 - Order not Confirmed"
+msgstr "14 - Pedido no Confirmado"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "15 - Offer didn't Arrive"
+msgstr "15 - No llegó la oferta"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "16 - Wrong Method of Payment"
+msgstr "16 - Forma de Pago incorrecta"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "17 - Not Enough Time"
+msgstr "17 - No hubo tiempo"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "18 - Client Doesn't Have Enough Space"
+msgstr "18 - Cliente no tiene Espacio"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "2 - Closed Business"
+msgstr "2 - Negocio Cerrado"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "20      X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "20 - Billed Twice"
+msgstr "20 - Facturado dos Veces"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "200     X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "2000    X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "21 - Price Error"
+msgstr "21 - Error en Precio"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "22 - Quality - It get's mushy"
+msgstr "22 - Calidad - Se Apasta"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "23 - Quality - Much is Broken"
+msgstr "23 - Calidad - Mucho Partido"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "24 - Quality - Damages"
+msgstr "24 - Calidad - Daños"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "25     X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "25 - Quality - Infestation"
+msgstr "25 - Calidad Plagas"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "26 - Dev. Virtual Errors"
+msgstr "26 - Dev. Errores Virtuales"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "27 - Billing Error"
+msgstr "27 - Error en Facturación"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "28 - Infestation and others for low turnover"
+msgstr "28 - Plagas y Otros por Baja Rotación"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "29 - Faulty Container"
+msgstr "29 - Envase Defectuoso"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "30 - Bad Packaging (In House)"
+msgstr "30 - Producto Mal Empacado (In House)"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "31 - Appearance"
+msgstr "31 - Apariencia"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "32 - Without justification"
+msgstr "32 - Sin Justificación"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "4 - Wrong Product"
+msgstr "4 - Producto Incompleto"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "5      X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "5 - Client didn't Order it"
+msgstr "5 - Cliente no Pidió"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "50      X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "500     X"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "6 - Address not found"
+msgstr "6 - Dirección no encontrada"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "7 - Client not in the Business Location"
+msgstr "7 - Cliente fuera del Negocio"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "8 - Wrong Order Date"
+msgstr "8 - Pedido no era Para ese día"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "9 - Client's Location is off-route"
+msgstr "9 - Cliente Fuera de Ruta"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid ""
+"<i class=\"fa fa-exclamation-triangle\"/>\n"
+"                                All products could not be reserved. Click on the \"Check Availability\" button to try to reserve products."
+msgstr ""
+"<i class=\"fa fa-exclamation-triangle\"/>\n"
+"                                Todos los productos no pueden ser reservados. Haga clic en el botón \"Comprobar disponibilidad\" para intentar reservar productos."
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.res_account_prodal_inherited_view
+msgid "<span class=\"o_form_label\">Payment Methods</span>"
+msgstr "<span class=\"o_form_label\">Métodos de Pago</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<span><strong>Customer Address:</strong></span>"
+msgstr "<span><strong>Dirección del Cliente:</strong></span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<span><strong>Delivery Address:</strong></span>"
+msgstr "<span><strong>Dirección de entrega:</strong></span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<span><strong>Vendor Address:</strong></span>"
+msgstr "<span><strong>Dirección del suplidor:</strong></span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<span><strong>Warehouse Address:</strong></span>"
+msgstr "<span><strong>Dirección almacén:</strong></span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Amount Paid</span>"
+msgstr "<span>Monto Pagado</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Amount</span>"
+msgstr "<span>Monto Factura</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Balance Due</span>"
+msgstr "<span>Balance Pendiente</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Client</span>"
+msgstr "<span>Cliente</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Comments</span>"
+msgstr "<span>Comentarios</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Condition</span>"
+msgstr "<span>Condición</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Days Overdue</span>"
+msgstr "<span>Días Vencidos</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Days Passed</span>"
+msgstr "<span>Días Transcurridos</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Due Date</span>"
+msgstr "<span>Fecha Vencimiento</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Fecha y hora de impresión:</span>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "<span>Initial balance</span>"
+msgstr "<span>Balance inicial</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Invoice Date</span>"
+msgstr "<span>Fecha Factura</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Invoice List</span>"
+msgstr "<span>Listado de Facturas</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>Invoice Number</span>"
+msgstr "<span>No. Factura</span>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_invoice_document
+msgid "<span>RNC</span>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "<strong> To: </strong>"
+msgstr "<strong> Hasta: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>(Truker)</strong>"
+msgstr "<strong>(Chofer)</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Bill Signature</strong>"
+msgstr "Firma de Recibo Conforme"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>CONDICIONES DE LA ORDEN</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Checked by</strong>"
+msgstr "<strong>Revisado Por</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Code</strong>"
+msgstr "<strong>Codigo</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>DEVOLUCION / NC</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Date:  </strong>"
+msgstr "<strong>Fecha: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Deliver To: </strong>"
+msgstr "<strong>Enviar a: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Delivered By </strong>"
+msgstr "<strong>Entregado Por</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Delivered By</strong>"
+msgstr "<strong>Entregado Por</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Delivery Date: </strong>"
+msgstr "<strong>Fecha Entrega:</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Description</strong>"
+msgstr "<strong>Descripción</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>ENTREGADO POR:</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "<strong>Emb. Qty.</strong>"
+msgstr "<strong>Cant. Emb.</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Embark From: </strong>"
+msgstr "<strong>Embarque Desde: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Embarked Date: </strong>"
+msgstr "<strong>Fecha Embarque: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Embarked From: </strong>"
+msgstr "<strong>Embarque desde: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>FACTURA</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "<strong>From: </strong>"
+msgstr "<strong>Desde: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>From</strong>"
+msgstr "<strong>Desde</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>IMPORTE</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Item No.</strong>"
+msgstr "<strong>No. Item</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "<strong>Item</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Lot/Serial Number</strong>"
+msgstr "<strong>Número Lote/Serie</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>MONTO NETO</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>NOMBRE DEL CLIENTE</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>NUMERO</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Name</strong>"
+msgstr "<strong>Nombre</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Note: </strong>"
+msgstr "<strong>Nota: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "<strong>Ord. Qty.</strong>"
+msgstr "<strong>Cant. Ord.</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Order:</strong>"
+msgstr "<strong>Pedido:</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Pkg Emb.</strong>"
+msgstr "<strong>Emp./Emb.</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Price</strong>"
+msgstr "<strong>Precio</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Product Barcode</strong>"
+msgstr "<strong>Código de barras del producto</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Product</strong>"
+msgstr "<strong>Producto</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>QQ/Emb.</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Qty Ordered</strong>"
+msgstr "<strong>Cant. Ordn.</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Quantity Returned</strong>"
+msgstr "<strong>Cantidad Devuelta</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Cantidad</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "<strong>Quintals</strong>"
+msgstr "<strong>Quintales</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>RECIBIDO POR:</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>RECIBO DE CAJA</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Received By</strong>"
+msgstr "<strong>Recibido Por</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Received Warehouse</strong>"
+msgstr "<strong>Recibido Almacén</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Return Reason</strong>"
+msgstr "<strong>Motivo Devolución</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Sent To: </strong>"
+msgstr "<strong>Enviado a: </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Signature</strong>"
+msgstr "<strong>Firma</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "<strong>TIPO DE PAGO</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>To</strong>"
+msgstr "<strong>a</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Total ---&gt; </strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Total </strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "<strong>Total QQ Emb. </strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Monto</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Transfer No: </strong>"
+msgstr "<strong>No. Transferencia : </strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>Truker</strong>"
+msgstr "<strong>Chofer</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "<strong>UM</strong>"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>Unit</strong>"
+msgstr "<strong>Unidad</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "<strong>Warehouse Assistant</strong>"
+msgstr "<strong>Ayudante Almacén</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "<strong>Warehouse</strong>"
+msgstr "<strong>Almacén</strong>"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "<strong>_______________________________________</strong>"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_print_journal__account_ids
+msgid "Account"
+msgstr "Cuentas"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_report_account_report_journal
+msgid "Account Journal Report"
+msgstr "Report de Diario Contable"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_account_print_journal
+msgid "Account Print Journal"
+msgstr "Contabilidad. Imprimir diario"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_stock_picking__days_since_creation
+msgid "Amount of days since stock picking creation"
+msgstr "Cantidad de días desde la creación del stock picking"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__analytic_account_id
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle__assistant_ids
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__assistant_ids
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__assistant_ids
+msgid "Assistants"
+msgstr "Ayudantes"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Available"
+msgstr "Disponible"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__price_average
+msgid "Average Price"
+msgstr "Precio medio"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "BANCO"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "BILLETES RD$"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "Balance"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__invoice_partner_bank_id
+msgid "Bank Account"
+msgstr "Cuenta Bancaria"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "Barcode"
+msgstr "Código de barras"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_stock_picking_batch
+msgid "Batch Transfer"
+msgstr "Transferir agrupación"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__batch_created_date
+msgid "Batch created date"
+msgstr "Fecha de creación grupo de transferencias"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__batch_created_uid
+msgid "Batch created uid"
+msgstr "Creado por grupo de transferencias"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__batch_quintal_total
+msgid "Batch quintal total"
+msgstr "Total quintales grupo de transferencias"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_move_in_invoice_type
+msgid "Bills"
+msgstr "Facturas"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_sale_order__blocked
+msgid "Blocked"
+msgstr "Bloqueado"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "CHEQUE"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "CHEQUES"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__code_reference__cp
+msgid "CP"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_view
+msgid "Calculate Value"
+msgstr "Calcular Valor"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_quintals_report_wizard
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_wizard_report_view
+#: model_terms:ir.ui.view,arch_db:prodal.picking_change_operation_view
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_invoice_list_wizard_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+msgid "Cancel picking"
+msgstr "Cancelar Transferencia"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "Cancellation"
+msgstr "Cancelación"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__cancel
+msgid "Cancelled"
+msgstr "Cancelada"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "Carrier:"
+msgstr "Transportista:"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_wizard_report_view
+msgid "Cash register report options"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.picking_change_operation_view
+msgid "Change operation type"
+msgstr "Cambiar tipo de operación"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_view
+msgid "Change picking type"
+msgstr "Cambiar tipo de operación"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "Check"
+msgstr "Chk"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_company__check_report_payment_method_ids
+#: model:ir.model.fields,field_description:prodal.field_res_config_settings__check_report_payment_method_ids
+msgid "Check Report Payment Method"
+msgstr "Método de pago de Reporte de Cheques"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "Check description"
+msgstr "Concepto"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Clients:"
+msgstr "Clientes:"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_hr_employee__code
+msgid "Code"
+msgstr "Código"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_partner__code_reference
+#: model:ir.model.fields,field_description:prodal.field_res_users__code_reference
+msgid "Code Reference"
+msgstr "Código de referencia"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_hr_employee__code
+msgid "Code of the employee"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_prodal__commercial_partner_id
+msgid "Commercial Entity"
+msgstr "Entidad comercial"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.res_account_prodal_inherited_view
+msgid "Commission Percent"
+msgstr "Porcentaje de comisión"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_quant__committed_qty
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Committed"
+msgstr "Comprometido"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__company_id
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Company"
+msgstr "Compañía"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+msgid "Confirm picking"
+msgstr "Confirmar Transferencia"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__confirmed
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_res_partner
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__partner_name
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.fleet_vehicle_prodal_replace_view
+msgid "Costs"
+msgstr "Costes"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__create_uid
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__create_uid
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__create_uid
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__create_uid
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__create_date
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__create_date
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__create_date
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__create_date
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_move_out_refund_type
+#: model:ir.ui.menu,name:prodal.menu_action_move_out_refund_type_vendor
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Credit Notes"
+msgstr "Notas de crédito"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.customer_menu
+msgid "Customers"
+msgstr "Clientes"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__date
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Date"
+msgstr "Fecha"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__date_planned_start
+msgid "Date Planned Start"
+msgstr "Fecha planificada"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__days_since_creation
+msgid "Days"
+msgstr "Días"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_res_partner__visit_weekday
+#: model:ir.model.fields,help:prodal.field_res_users__visit_weekday
+msgid "Days to visit this partner."
+msgstr "Día para visitar a este contacto."
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Description"
+msgstr "Descripción"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__dest_move_unprocessed
+msgid "Dest Move Unprocessed"
+msgstr "Transferencia en Tránsito"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_quant__available_difference
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Difference"
+msgstr "Diferencia"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_sale_order_line__discount
+msgid "Discount (%)"
+msgstr "Descuento (%)"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_product_pricelist__sale_discount
+#: model:ir.model.fields,help:prodal.field_sale_order__sale_discount
+msgid "Discount to be applied in sale order lines discount field."
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__display_name
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__display_name
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__display_name
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__display_name
+#: model:ir.model.fields,field_description:prodal.field_prodal__display_name
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__display_name
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_load_truck__display_name
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_prodal_load_squaring__display_name
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_prodal_packing_list__display_name
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__display_name
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_inventory_report_quintals__display_name
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_inventory_report_view__display_name
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_report_prodal_invoice_document__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__done
+msgid "Done"
+msgstr "Hecho"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Draft Invoices"
+msgstr "Facturas borrador"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_move__driver_id
+#: model:ir.model.fields,field_description:prodal.field_account_move_line__move_driver_id
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle__driver_id
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle_assignation_log__driver_id
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle_odometer__driver_id
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__driver
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__driver
+msgid "Driver"
+msgstr "Conductor"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_fleet_vehicle__driver_id
+#: model:ir.model.fields,help:prodal.field_fleet_vehicle_odometer__driver_id
+msgid "Driver of the vehicle"
+msgstr "Conductor del vehículo"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_fleet_vehicle_assignation_log
+msgid "Drivers history on a vehicle"
+msgstr "Historial de conductores en un vehículo "
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__residual
+msgid "Due Amount"
+msgstr "Monto adeudado"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__invoice_date_due
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Due Date"
+msgstr "Fecha vencimiento"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__code_reference__ee
+msgid "EE"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Efectivo Entregado (Billetes + Monedas)"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Efectivo a Entregar Según Facturas"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_horizontal_header
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_without_header
+msgid "Email:"
+msgstr "Correo electrónico:"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Embarked Products Summary"
+msgstr "Resumen de Productos Embarcados"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_hr_employee
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__date_to
+msgid "End Date"
+msgstr "Fecha Final"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Entry"
+msgstr "Tránsito"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__stock_picking__freight_type__ext
+msgid "External"
+msgstr "Externo"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__driver_ext
+msgid "External Driver"
+msgstr "Transportista"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__driver_ext_id
+msgid "External Driver ID"
+msgstr "Cédula Transportista"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__driver_ext_plate
+msgid "External Driver Plate"
+msgstr "Placa Transportista"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Faltante o Sobrante del Viaje:"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle__license_plate
+msgid "Ficha"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__fiscal_position_id
+msgid "Fiscal Position"
+msgstr "Posición fiscal"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__freight_type
+msgid "Freight Type"
+msgstr "Tipo Flete"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "Freight Type:"
+msgstr "Tipo Flete:"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__fri
+msgid "Friday"
+msgstr "Viernes"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "From"
+msgstr "Desde"
+
+#. module: prodal
+#: model_terms:ir.actions.act_window,help:prodal.sale_action_account_invoice_report_all
+msgid ""
+"From this report, you can have an overview of the amount invoiced to your "
+"customers. The search tool can also be used to personalise your Invoices "
+"reports and so, match this analysis to your needs."
+msgstr ""
+"Con este informe puede obtener una vista general de la cantidad facturada a "
+"sus clientes. Puede utilizar la herramienta de búsqueda para personalizar "
+"sus Informes de facturas y el resto, ajustando el análisis a sus "
+"necesidades."
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_fleet_vehicle_log_fuel
+msgid "Fuel log for vehicles"
+msgstr "Registro de combustible para los vehículos"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle__future_driver_id
+msgid "Future Driver"
+msgstr "Futuro conductor"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "GIRADOR"
+msgstr ""
+
+#. module: prodal
+#: code:addons/prodal/reports/report_prodal_account_journal.py:0
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+#, python-format
+msgid "General"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "General Load Summary"
+msgstr "Compromiso General de Carga"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__id
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__id
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__id
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__id
+#: model:ir.model.fields,field_description:prodal.field_prodal__id
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__id
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_load_truck__id
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_prodal_load_squaring__id
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_prodal_packing_list__id
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__id
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_inventory_report_quintals__id
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_inventory_report_view__id
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_report_prodal_invoice_document__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_account_payment_term__is_cash
+msgid ""
+"If checked, invoices with this payment term will be taken into account for "
+"the \"cash to deliver\" field in the squaring load report"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_uom_uom__is_unload_unit
+msgid ""
+"If checked, moves with products that have this uom are factored in when "
+"computing the unload price of a stock picking."
+msgstr ""
+"Si está marcado, movimientos con productos que tienen esta unidad de medida "
+"son tomados en cuenta en el cálculo del valor de descarga de una "
+"transferencia"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_product_product__is_unload_product
+#: model:ir.model.fields,help:prodal.field_product_template__is_unload_product
+msgid ""
+"If checked, moves with this product are factored in when computing the "
+"unload price of a stock picking."
+msgstr ""
+"Si está marcado, movimientos con estos productos son tomados en cuenta en el"
+" cálculo del valor de descarga de una transferencia"
+
+#. module: prodal
+#: model:res.groups,name:prodal.group_ignore_qq_validation
+msgid "Ignore Quintal validation in batch picking"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__progress
+msgid "In Progress"
+msgstr "En progreso"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__stock_picking__freight_type__int
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Internal"
+msgstr "Interno"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "Internal Transfer Report"
+msgstr "Reporte Transferencia Interna"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "Introduction Date:"
+msgstr "Fecha Introducción:"
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.action_inventory_report_wizard
+#: model:ir.ui.menu,name:prodal.inventory_report_wizard_menu
+msgid "Inventory Printed Report"
+msgstr "Report Impreso de Inventario"
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.inventory_report
+msgid "Inventory Printed Reprort"
+msgstr ""
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.action_inventory_quintals_report_wizard
+#: model:ir.actions.report,name:prodal.inventory_quintals_report
+#: model:ir.ui.menu,name:prodal.inventory_quintals_report_wizard_menu
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_quintals
+msgid "Inventory Quintals Report"
+msgstr "Reporte de Inventario por Quintales"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_inventory_quintals_report_wizard
+msgid "Inventory Quintals Report Wizard"
+msgstr "Wizard Reporte de Inventario por Quintales"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Inventory Report"
+msgstr "Reporte de Inventario"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_inventory_report_wizard
+msgid "Inventory report wizard"
+msgstr ""
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.invoice_menu_root
+msgid "Invoice"
+msgstr "Facturación"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__name
+msgid "Invoice #"
+msgstr "Factura #"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__invoice_date
+msgid "Invoice Date"
+msgstr "Fecha factura"
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.action_report_prodal_invoice_list
+#: model:ir.ui.menu,name:prodal.menu_prodal_invoice_list
+msgid "Invoice List"
+msgstr "Listado de Facturas"
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.action_prodal_invoice_list_menu
+msgid "Invoice List Report"
+msgstr "Reporte Facturas Pendientes Por Cobrar"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_prodal_invoice_list_wizard
+msgid "Invoice List Wizard"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__state
+msgid "Invoice Status"
+msgstr "Estado factura"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Invoiced"
+msgstr "Facturado"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_move_out_invoice_type
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Invoices"
+msgstr "Facturas"
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.sale_action_account_invoice_report_all
+msgid "Invoices Analysis"
+msgstr "Análisis de facturas"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Invoices Analysiss"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Estadísticas de facturas"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_payment_term__is_cash
+msgid "Is Cash"
+msgstr "Efectivo"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__check_payment
+msgid "Is Check Payment"
+msgstr "Es Pago con Cheque"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_move__is_offer
+msgid "Is Offer"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_product_product__is_unload_product
+#: model:ir.model.fields,field_description:prodal.field_product_template__is_unload_product
+msgid "Is unload product"
+msgstr "Es producto de descarga"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_uom_uom__is_unload_unit
+msgid "Is unload unit"
+msgstr "Es unidad de descarga"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Items:"
+msgstr "Artículos:"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__journal_id
+msgid "Journal"
+msgstr "Diario"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_account_move
+msgid "Journal Entries"
+msgstr "Asientos contables"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.res_account_prodal_inherited_view
+msgid "Journal Report Payment"
+msgstr "Reporte de Pagos en Auditoría de Libros"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_print_journal__journal_ids
+msgid "Journals"
+msgstr "Diarios"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard____last_update
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard____last_update
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line____last_update
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation____last_update
+#: model:ir.model.fields,field_description:prodal.field_prodal____last_update
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard____last_update
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_load_truck____last_update
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_prodal_load_squaring____last_update
+#: model:ir.model.fields,field_description:prodal.field_prodal_report_prodal_packing_list____last_update
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone____last_update
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_inventory_report_quintals____last_update
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_inventory_report_view____last_update
+#: model:ir.model.fields,field_description:prodal.field_report_prodal_report_prodal_invoice_document____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__write_uid
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__write_uid
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__write_uid
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__write_uid
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__write_date
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__write_date
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__write_date
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__write_date
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_res_partner__last_sale_date
+#: model:ir.model.fields,help:prodal.field_res_users__last_sale_date
+msgid "Last confirmed sale date"
+msgstr "Última fecha de venta confirmada"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_res_partner__last_sale
+#: model:ir.model.fields,help:prodal.field_res_users__last_sale
+msgid "Last confirmed sale of this partner."
+msgstr "Última venta confirmada de este contacto."
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_partner__last_sale
+#: model:ir.model.fields,field_description:prodal.field_res_users__last_sale
+msgid "Last sale"
+msgstr "Última venta"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_partner__last_sale_date
+#: model:ir.model.fields,field_description:prodal.field_res_users__last_sale_date
+msgid "Last sale date"
+msgstr "Fecha de última venta"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_fleet_vehicle__plate
+msgid "License plate number of the vehicle"
+msgstr "Numero de placa del Vehículo"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__nbr_lines
+msgid "Line Count"
+msgstr "Número de Líneas"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Load No. :"
+msgstr "No. de Carga:"
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.action_report_prodal_load_squaring
+msgid "Load Squaring"
+msgstr "Cuadre de Carga"
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.action_report_load_truck
+msgid "Load Truck"
+msgstr "Cargar Camión"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Load relation for merchandise delivery"
+msgstr "Relación de Carga para Entrega de Mercancía"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__location_ids
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__location_ids
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_quintals
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_horizontal_header
+msgid "Logo"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "MONEDAS RD$"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "MONTO RD"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_mrp_stock_move_line
+msgid "MRP view move lines"
+msgstr ""
+
+#. module: prodal
+#: model:res.groups,name:prodal.group_invoice_menu_user
+msgid "Menu Users"
+msgstr ""
+
+#. module: prodal
+#: model:res.groups,name:prodal.group_invoice_menu_user_vendors
+msgid "Menu Users Vendors"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__mon
+msgid "Monday"
+msgstr "Lunes"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__move_id
+msgid "Move"
+msgstr "Asiento"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_account_move_line__move_driver_id
+msgid "Move related driver"
+msgstr "Chofer relacionado al movimiento"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "My Invoices"
+msgstr "Mis facturas"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal_zone__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_prodal_zone__name
+msgid "Name of the zone"
+msgstr "Nombre de la zona"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_fleet_vehicle__future_driver_id
+msgid "Next Driver of the vehicle"
+msgstr "Siguiente conductor del vehículo"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "No Unload"
+msgstr "No Descarga"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_sale_order__notes
+msgid "Notes"
+msgstr "Notas"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_fleet_vehicle__license_plate
+msgid "Numero de ficha del vehiculo"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "OBSERVACIONES"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.fleet_vehicle_prodal_replace_view
+msgid "Odometer"
+msgstr "Odómetro"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_fleet_vehicle_odometer
+msgid "Odometer log for a vehicle"
+msgstr "Registro del odómetro para un vehículo"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_res_config_settings__check_report_payment_method_ids
+#: model_terms:ir.ui.view,arch_db:prodal.res_account_prodal_inherited_view
+msgid ""
+"Only print moves with these payment methods in the journal report when the "
+"payment check option is selected."
+msgstr ""
+"En el Reporte de Auditoria de Libros, solo muestra movimientos con estos "
+"métodos de pago si la opción de ‘pago cheque’ está marcada."
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "Package"
+msgstr "Paquete"
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.action_report_prodal_packing_list
+msgid "Packing List"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_horizontal_header
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_without_header
+msgid "Page: <span class=\"page\"/> / <span class=\"topage\"/>"
+msgstr "Página: <span class=\"page\"/> / <span class=\"topage\"/>"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__partner_id
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Partner"
+msgstr "Empresa"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__commercial_partner_id
+msgid "Partner Company"
+msgstr "Empresa asociada"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_print_journal__payment_check
+msgid "Payment Check"
+msgstr "Pago Cheque"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__invoice_payment_state
+msgid "Payment Status"
+msgstr "Estado de Pago"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_account_payment_term
+#: model:ir.model.fields,field_description:prodal.field_prodal__invoice_payment_term_id
+msgid "Payment Terms"
+msgstr "Plazos de pago"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_journal_prodal
+msgid "Payment type"
+msgstr ""
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_payments_payble
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_quant_prodal_tree_view_editable_inherit
+#: model_terms:ir.ui.view,arch_db:prodal.stock_quant_prodal_tree_view_inherit
+msgid "Pending to fulfill"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_stock_picking_batch__user_id
+msgid "Person responsible for this batch transfer"
+msgstr "Persona responsable de esta transferencia por lotes"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_horizontal_header
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_without_header
+msgid "Phone:"
+msgstr "Teléfono:"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_stock_picking_type
+#: model:ir.model.fields,field_description:prodal.field_picking_change_operation__picking_type_id
+msgid "Picking Type"
+msgstr "Tipo de albarán"
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.action_picking_change_operation
+#: model:ir.model,name:prodal.model_picking_change_operation
+#: model_terms:ir.ui.view,arch_db:prodal.picking_change_operation_view
+msgid "Picking change operation"
+msgstr "Cambiar tipo de operación"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_hr_employee__plan_to_change_car
+#: model:ir.model.fields,field_description:prodal.field_hr_employee_public__plan_to_change_car
+msgid "Plan To Change Car"
+msgstr "Plan para cambiar de auto"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__planned
+msgid "Planned"
+msgstr "Planeado"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle__plate
+msgid "Plate"
+msgstr "Placa"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_product_pricelist
+msgid "Pricelist"
+msgstr "Tarifa"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_quintals_report_wizard
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_wizard_report_view
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_invoice_list_wizard_view
+msgid "Print"
+msgstr "Imprimir"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Procesadora de Alimentos Prodal, S. A"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Procesadora de Alimentos Prodal, S.A"
+msgstr ""
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.action_report_prodal_internal_transfer
+msgid "Prodal Internal Transfer Report"
+msgstr "Reporte Transferencia Interna"
+
+#. module: prodal
+#: model:ir.actions.report,name:prodal.action_report_prodal_transfer
+msgid "Prodal Transfers Report"
+msgstr "Reporte de Transferencia"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__product_id
+#: model:ir.model.fields,field_description:prodal.field_prodal__product_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_product_category
+#: model:ir.model.fields,field_description:prodal.field_inventory_quintals_report_wizard__categ_ids
+#: model:ir.model.fields,field_description:prodal.field_inventory_report_wizard__categ_ids
+#: model:ir.model.fields,field_description:prodal.field_prodal__product_categ_id
+#: model:ir.model.fields,field_description:prodal.field_stock_quant__categ_id
+#: model_terms:ir.ui.view,arch_db:prodal.stock_quant_search_view_prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Product Category"
+msgstr "Categoría de Producto"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__quantity
+msgid "Product Quantity"
+msgstr "Cantidad producto"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_product_template
+msgid "Product Template"
+msgstr "Plantilla producto"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_uom_uom
+msgid "Product Unit of Measure"
+msgstr "Unidad de medida del producto"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__product_ctg_id
+msgid "Product category"
+msgstr "Categoría de producto"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_product_display
+#: model:ir.ui.menu,name:prodal.menu_action_purchasable
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+msgid "Products"
+msgstr "Productos"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Programmed Shipment Date:"
+msgstr "Fecha de Embarque Programado:"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_hr_employee_public
+msgid "Public Employee"
+msgstr "Empleado Público"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle_log_fuel__purchaser_id
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle_log_services__purchaser_id
+msgid "Purchaser"
+msgstr "Comprador"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_invoice_report__quintales_per_ud
+#: model:ir.model.fields,field_description:prodal.field_account_move_line__qq
+#: model:ir.model.fields,field_description:prodal.field_prodal__quintales_per_ud
+#: model:ir.model.fields,field_description:prodal.field_sale_report__quintales_per_ud
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_list_view
+msgid "QQ"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_quant_prodal_tree_view_editable_inherit
+msgid "Qty to Produce"
+msgstr "Cant. a Producir"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_quant__qty_to_produce
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Qty. to Produce"
+msgstr "Cant. a Producir"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_move__qty_done_total_batch
+msgid "Quantity Done"
+msgstr "Cantidad hecha"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_product_product__quantity_pound
+#: model:ir.model.fields,field_description:prodal.field_product_template__quantity_pound
+msgid "Quantity Pounds"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__qty_qq
+msgid "Quantity QQ"
+msgstr "QQ"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__qty_done
+msgid "Quantity done"
+msgstr "Cantidad hecha"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_stock_quant
+msgid "Quants"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_account_move_line__qq
+msgid "Quintal"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_fleet_vehicle__quintal_limit
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__quintal_limit
+msgid "Quintal Limit"
+msgstr "Limite de Quintales"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_list_view
+msgid "Quintal Total"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_product_product__quintales_per_ud
+#: model:ir.model.fields,field_description:prodal.field_product_template__quintales_per_ud
+msgid "Quintales x UD"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_quintals
+msgid "Quintals"
+msgstr "Quintales"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Quintals:"
+msgstr "Quintales:"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "RESUMEN DEL CUADRE DEL VIAJE"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Reason for return"
+msgstr "Motivo de Devolución"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_move_in_receipt_type
+msgid "Receipts"
+msgstr "Recepciones"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__reference
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_account_move__driver_id
+msgid "Related driver"
+msgstr "Empleado chofer relacionado"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_zone_form
+msgid "Repair Order"
+msgstr "Orden de Reparacion"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_report_prodal_report_prodal_invoice_document
+msgid "Report Invoice List"
+msgstr "Reporte de Listado de Facturas"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_quintals_report_wizard
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_invoice_list_wizard_view
+msgid "Report Options"
+msgstr "Opciones de Reporte"
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.mrp_stock_move_line_action
+#: model:ir.ui.menu,name:prodal.menu_mrp_production_report
+#: model_terms:ir.ui.view,arch_db:prodal.mrp_stock_move_line_pivot
+#: model_terms:ir.ui.view,arch_db:prodal.mrp_stock_move_line_tree
+msgid "Report production"
+msgstr "Reporte de producción"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_prodal_report_load_truck
+msgid "Report transfer truck route"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Reporte de Cuadre de Carga"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_product_product__weight_factor
+#: model:ir.model.fields,help:prodal.field_product_template__weight_factor
+msgid ""
+"Represents the weight factor of the product used in the calculation of the "
+"unload price."
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__user_id
+msgid "Responsible"
+msgstr "Responsable"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__account_id
+msgid "Revenue/Expense Account"
+msgstr "Cuenta de Ingresos/Gastos"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_product_pricelist__sale_discount
+#: model:ir.model.fields,field_description:prodal.field_sale_order__sale_discount
+msgid "Sale Discount (%)"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__sale_note
+msgid "Sale Note"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__sale_notes
+msgid "Sale Notes"
+msgstr "Notas de Venta"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__sale_zone_id
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_search_view
+msgid "Sale Zone"
+msgstr "Zona de Venta"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_stock_picking__sale_note
+msgid "Sale order note"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_sale_order__notes
+#: model:ir.model.fields,help:prodal.field_stock_picking__sale_notes
+msgid "Sale order notes"
+msgstr "Notas de Pedido de Venta"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "Informe de análisis de ventas"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de Venta"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea pedido de venta"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__user_ids
+msgid "Sales Rep"
+msgstr "Vendedores"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__team_id
+msgid "Sales Team"
+msgstr "Equipo de ventas"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__invoice_user_id
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__salesperson
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_search_view
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Salesperson"
+msgstr "Vendedor"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Salesperson Summary:"
+msgstr "Resumen de Vendedor:"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__sat
+msgid "Saturday"
+msgstr "Sábado"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_fleet_vehicle_log_services
+msgid "Services for vehicles"
+msgstr "Servicios para los vehículos"
+
+#. module: prodal
+#: model:base.automation,name:prodal.set_dest_move_unprocessed
+#: model:ir.actions.server,name:prodal.set_dest_move_unprocessed_ir_actions_server
+msgid "Set field dest_move_unprocessed"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Shipment List Truck Route  <strong>** PRESALES **</strong>"
+msgstr "Listado de Embarque Ruteo Camión  <strong>** PREVENTAS **</strong>"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_warehouse__code
+msgid "Short Name"
+msgstr "Nombre corto"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_stock_warehouse__code
+msgid "Short name used to identify your warehouse"
+msgstr "Nombre corto usado para identificar su almacén"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__show_vehicle_fields
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_type__show_vehicle_fields
+msgid "Show driver and truck"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__show_freight_type
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_type__show_freight_type
+msgid "Show freight type"
+msgstr "Mostrar tipo de flete"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_product_category__shown_name
+msgid "Shown name"
+msgstr "Nombre a mostrar"
+
+#. module: prodal
+#: model:res.groups,name:prodal.group_specific_warehouse
+msgid "Specific Wharehouse"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal_invoice_list_wizard__date_from
+msgid "Start Date"
+msgstr "Fecha Inicial"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_mrp_stock_move_line__mrp_state
+msgid "State"
+msgstr "Estado"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "Status"
+msgstr "Estado"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_quant__stock_max
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Stock Max"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_quant__stock_min
+#: model_terms:ir.ui.view,arch_db:prodal.inventory_report_view
+msgid "Stock Min"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_stock_move
+msgid "Stock Move"
+msgstr "Movimiento de existencias"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+msgid "Stock Moves"
+msgstr "Movimientos de stock"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_prodal_report_prodal_load_squaring
+msgid "Stock Picking Batch Prodal report"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_prodal_report_prodal_packing_list
+msgid "Stock Picking Prodal report"
+msgstr ""
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.stock_picking_batch_tree_report_action
+#: model:ir.ui.menu,name:prodal.stock_picking_batch_tree_report_menu
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_pivot_report
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_tree_report
+msgid "Stock picking batch report"
+msgstr "Reporte de embarques"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__sun
+msgid "Sunday"
+msgstr "Domingo"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_view
+msgid "Terms and conditions..."
+msgstr "Términos y condiciones..."
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_validation_message_template
+msgid "The picking"
+msgstr "La transferencia"
+
+#. module: prodal
+#: code:addons/prodal/wizard/inventory_report.py:0
+#, python-format
+msgid "There is no registers between categories and locations selected"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_res_partner__code_reference
+#: model:ir.model.fields,help:prodal.field_res_users__code_reference
+msgid "This code is use to generate the partner reference."
+msgstr "Este código se utiliza para generar la referencia de cliente."
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_sale_order__blocked
+msgid "This field is set to true if order line is changed"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__thu
+msgid "Thursday"
+msgstr "Jueves"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_transfer
+msgid "To"
+msgstr "Hasta"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__mrp_stock_move_line__mrp_state__to_close
+msgid "To Close"
+msgstr "Para cerrar"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.view_sale_invoice_report_search
+msgid "To Invoice"
+msgstr "Para facturar"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__amount_total
+msgid "Total"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Total ---&gt;"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_move__total_no_discount
+#: model:ir.model.fields,field_description:prodal.field_sale_order__total_no_discount
+msgid "Total No discount"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__quintal_total
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__quintal_total
+msgid "Total Quintals"
+msgstr "Total de Quintales"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Total RD$ entregado en Cheques"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Total de Billetes"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_load_squaring_document
+msgid "Total de Monedas"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_move__total_discount
+#: model:ir.model.fields,field_description:prodal.field_sale_order__total_discount
+msgid "Total discount"
+msgstr "Descuento total"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__total_price
+msgid "Total price"
+msgstr "Precio Total"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_stock_picking__total_price
+msgid "Total price of all the move lines"
+msgstr "Precio total de todas las lineas de movimiento"
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_stock_move__qty_done_total_batch
+msgid "Total quantity done in batch"
+msgstr "Cantidad total hecha en embarque"
+
+#. module: prodal
+#: code:addons/prodal/models/stock_picking.py:0
+#, python-format
+msgid "Total quintals above the limit."
+msgstr "Total de quintales por encima del limite."
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Total:"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_stock_picking
+msgid "Transfer"
+msgstr "Transferir"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+msgid "Transfer No:"
+msgstr "Nro. Transf.:"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+msgid "Transfers"
+msgstr "Embarques"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__truck_id
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__truck_id
+msgid "Truck"
+msgstr "Camión"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Truck File:"
+msgstr "Ficha del Camión:"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_load_truck
+msgid "Truker:"
+msgstr "Camionero:"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__tue
+msgid "Tuesday"
+msgstr "Martes"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__product_uom_id
+msgid "Unit of Measure"
+msgstr "Unidad de medida"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_partner__unload_factor
+#: model:ir.model.fields,field_description:prodal.field_res_users__unload_factor
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__unload_factor
+msgid "Unload Factor"
+msgstr "Factor de Descarga"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__unload_price
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__unload_price
+msgid "Unload Price"
+msgstr "Valor Descarga"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Unload Price:"
+msgstr "Valor Descarga:"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Unload Value:"
+msgstr "Valor Descarga:"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_partner__is_unload_client
+#: model:ir.model.fields,field_description:prodal.field_res_users__is_unload_client
+msgid "Unload client"
+msgstr "Cliente de Descarga"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_account_move__unload_discount
+msgid "Unload discount"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_prodal__price_subtotal
+msgid "Untaxed Total"
+msgstr "Total libre de impuestos"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking__user_to_notify
+msgid "User To Notify"
+msgstr "Usuario a notificar"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__code_reference__vm
+msgid "VM"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,help:prodal.field_res_partner__unload_factor
+#: model:ir.model.fields,help:prodal.field_res_users__unload_factor
+#: model:ir.model.fields,help:prodal.field_stock_picking__unload_factor
+msgid "Value multiplied by number of bags to get unload price"
+msgstr ""
+"Valor multiplicado por el número de sacos para obtener el valor de descarga"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_fleet_vehicle
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_batch_prodal_view
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_prodal_view
+msgid "Vehicle"
+msgstr "Vehículo"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_invoice_debit_in
+msgid "Vendor debit notes"
+msgstr "Notas de débito de proveedor"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.menu_action_supplier
+#: model:ir.ui.menu,name:prodal.vendors_menu
+msgid "Vendors"
+msgstr "Proveedores"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_res_partner__visit_weekday
+#: model:ir.model.fields,field_description:prodal.field_res_users__visit_weekday
+msgid "Visit weekday"
+msgstr "Día de visita"
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_stock_warehouse
+#: model:ir.model.fields,field_description:prodal.field_res_users__warehouse_ids
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_warehouse_assigment
+msgid "Warehouse"
+msgstr "Almacén"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_horizontal_header
+#: model_terms:ir.ui.view,arch_db:prodal.prodal_external_layout_standard_without_header
+msgid "Web:"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__visit_weekday__wed
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_product_product__weight_factor
+#: model:ir.model.fields,field_description:prodal.field_product_template__weight_factor
+msgid "Weight Factor"
+msgstr "Factor Peso"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.report_internal_prodal_transfer
+#: model_terms:ir.ui.view,arch_db:prodal.report_prodal_packing_list_document
+msgid "Yo,"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields.selection,name:prodal.selection__res_partner__code_reference__zz
+msgid "ZZ"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_sale_order__zone_id
+msgid "Zone"
+msgstr "Zona"
+
+#. module: prodal
+#: model:ir.actions.act_window,name:prodal.action_zone
+#: model:ir.ui.menu,name:prodal.menu_zones
+#: model:ir.ui.menu,name:prodal.prodal_menu_zones
+#: model_terms:ir.ui.view,arch_db:prodal.view_zone_form
+#: model_terms:ir.ui.view,arch_db:prodal.view_zone_tree
+msgid "Zones"
+msgstr "Zonas"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.stock_picking_validation_message_template
+msgid "has been validated!"
+msgstr "ha sido validada"
+
+#. module: prodal
+#: model:ir.ui.menu,name:prodal.account_invoice_analysis
+msgid "invoice Analysis"
+msgstr "Analisis de facturas"
+
+#. module: prodal
+#: model:ir.model.fields,field_description:prodal.field_stock_picking_batch__move_join_ids
+msgid "move joined"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_prodal
+msgid "prodal"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_prodal_zone
+msgid "prodal.zone"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_report_prodal_inventory_report_quintals
+msgid "report.prodal.inventory_report_quintals"
+msgstr ""
+
+#. module: prodal
+#: model:ir.model,name:prodal.model_report_prodal_inventory_report_view
+msgid "report.prodal.inventory_report_view"
+msgstr ""
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.fleet_vehicle_prodal_replace_view
+msgid "show all the costs for this vehicle"
+msgstr "mostrar todos los costes para este vehículo"
+
+#. module: prodal
+#: model_terms:ir.ui.view,arch_db:prodal.fleet_vehicle_prodal_replace_view
+msgid "show the odometer logs for this vehicle"
+msgstr "mostrar los registros de odómetro para este vehículo"

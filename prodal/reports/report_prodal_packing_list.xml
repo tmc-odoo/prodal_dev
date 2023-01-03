@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="assets_common" name="report_prodal_packing_list_document assets" inherit_id="web.report_assets_common">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/css" href="/prodal/static/src/css/report_prodal_stock_picking.css"/>
+        </xpath>
+    </template>
+
+    <template id="report_prodal_packing_list_document">
+        <t t-call="web.html_container">
+            <t t-call="prodal.prodal_external_layout_without_header">
+                <t t-set="report" t-value="o.env['prodal.report_prodal_packing_list']"/>
+                <div class="page">
+                    <div class="packing-list-header">
+                        <div class="row">
+                            <div class="col-3">
+                                <h6 t-field="o.name" class="font-weight-bold"/>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="title text-center mb16">Procesadora de Alimentos Prodal, S. A</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p t-field="o.truck_id.license_plate"/>
+                            </div>
+                            <div class="col-6">
+                                <h6 id="report-title" class="text-center mt16 mb16">Load relation for merchandise delivery</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p><span t-field="o.driver.code"/><t t-foreach="o.assistant_ids" t-as="assistant">. <span t-field="assistant.code"/></t></p>
+                            </div>
+                            <div class="col-3 offset-6">
+                                <h6 t-field="o.create_date" class="font-weight-bold text-center mt16"></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="separator thin-margin"/>
+                    <div t-foreach="report.get_picking_groups(o, 'user')" t-as="group">
+                        <t t-set="pickings" t-value="group[1]"/>
+                        <t t-set="salesperson" t-value="group[0]"/>
+                        <h4 style="margin-top:30px"><span t-esc="salesperson.display_name" class ="title"></span></h4>
+                        <div t-foreach="pickings" t-as="picking">
+                            <div class="separator">
+                                <p>
+                                    <span t-field="picking.partner_id.street2"/> / 
+                                    <span t-field="picking.name"/> /
+                                    <span t-field="picking.partner_id"/> / 
+                                    <span t-field="picking.user_id"/> / 
+                                    <span t-field="picking.partner_id.street"/> / 
+                                    <span t-field="picking.partner_id.city"/>
+                                    <t t-if="picking.partner_id.is_unload_client">
+                                        <span class="float-right font-weight-bold mr8 underline">D</span>
+                                    </t>
+                                </p>
+                            </div>
+                            <div class="row picking-total">
+                                <div class="col-4 small ml-1">
+                                   <p t-if="picking.unload_price > 0">Unload Value: <span t-field="picking.unload_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></p>
+                                   <p t-else="">No Unload</p>
+                                </div>
+                                <div class="col-4 offset-4 small">
+                                    <div class="double-underline float-right">
+                                        <span t-esc="sum(picking.move_lines.mapped(lambda ml: ml.sale_line_id.price_unit * ml.quantity_done))"
+                                        t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"
+                                        />
+                                    </div>                                  
+                                </div>
+                            </div>
+                            <table class="table table-sm small mt0" t-if="picking.state!='done'" name="stock_move_table">
+                                <thead>
+                                    <tr>
+                                        <th name="th_sm_product"><strong>Product</strong></th>
+                                        <th name="th_sm_quantity"><strong>Quantity</strong></th>
+                                        <th name="th_sm_price"><strong>Price</strong></th>
+                                        <th name="th_sm_total"><strong>Total </strong></th>
+                                        <th name="th_sm_return_reason" class="ml-auto mr-1"><strong>Return Reason</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="lines" t-value="picking.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+                                    <tr t-foreach="lines" t-as="move">
+                                        <td>
+                                            <span t-field="move.product_id"/><span t-if="move.is_offer" class="font-weight-bold"> **OF</span>
+                                            <p t-if="move.description_picking != move.product_id.name">
+                                                <span t-field="move.description_picking"/>
+                                            </p>
+                                        </td>
+                                        <td>
+                                            <span t-field="move.quantity_done"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="move.sale_line_id.price_unit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="move.sale_line_id.price_unit * move.quantity_done" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                        </td>
+                                        <td>
+                                            <div class="return-reason-box"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table class="table table-sm small mt0" t-if="picking.move_lines and picking.state=='done'" name="stock_move_line_table">
+                                <thead>
+                                    <tr>
+                                        <th name="th_sml_product"><strong>Product</strong></th>
+                                        <th name="th_sml_quantity"><strong>Quantity</strong></th>
+                                        <th name="th_sml_price"><strong>Price</strong></th>
+                                        <th name="th_sml_total"><strong>Total</strong></th>
+                                        <th name="th_sm_return_reason"><strong>Return Reason</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="picking.move_lines" t-as="move_line">
+                                        <td t-if="has_serial_number and move_line.lot_name" groups="stock.group_lot_on_delivery_slip">
+                                            <span t-field="move_line.lot_name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="move_line.product_id"/>
+                                        </td>   
+                                        <td class="text-center">
+                                            <span t-field="move_line.quantity_done"/>
+                                            <span t-field="move_line.product_uom"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="move_line.sale_line_id.price_unit" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="move_line.sale_line_id.price_unit * move_line.quantity_done" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                        </td>
+                                        <td>
+                                            <div class="return-reason-box"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                            <div class="salesperson-summary" t-if="salesperson">
+                                <div class="row mt32 mb32">
+                                    <div class="col-6" name="div_salesperson">
+                                        <p>Salesperson Summary:&#160;&#160;&#160;&#160;&#160;&#160;<span class="big" t-esc="salesperson.name"/></p>
+                                    </div>
+                                    <div class="col-4 offset-2" name="div_total">
+                                        <h4><span t-esc="report.get_total_price(pickings)" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></h4>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <t t-set="total_price" t-value="report.get_total_price(o.mapped('picking_ids'))"/>
+                    <t t-set="summary_lines" t-value="report.get_picking_summary(batch=o)"/>
+                    <div>
+                         <div class="row mt16 div-load-summary">
+                            <div class="col-2"><h5 t-field="o.name" class="font-weight-bold"/></div>
+                            <div class="col-5"><h6 class="title">General Load Summary</h6></div>
+                            <div class="col-5"><h5 class="font-weight-bold">Total: <span t-esc="total_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></h5></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p><span t-field="o.driver.code"/><t t-foreach="o.assistant_ids" t-as="assistant">. <span t-field="assistant.code"/></t></p>
+                            </div>
+                            <div class="col-4 offset-5">
+                                <p t-field="o.create_date"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p t-field="o.truck_id.license_plate"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-5 offset-7">
+                                <p>Unload Price: <span t-field="o.unload_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></p>
+                            </div>
+                        </div>
+                        <table class="table table-sm small mt16" name="stock_move_general_load_summary_table">
+                            <thead>
+                                <tr>
+                                    <th name="th_sm_product"><strong>Code</strong></th>
+                                    <th name="th_sm_product"><strong>Description</strong></th>
+                                    <th name="th_sm_unit"><strong>Unit</strong></th>
+                                    <th name="th_sm_quantity"><strong>Quantity</strong></th>
+                                    <th name="th_sm_total"><strong>Total </strong></th>
+                                    <th name="th_sm_qty_returned" class="return-reason-col"><strong>Quantity Returned</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="summary_lines" t-as="line">
+                                    <td>
+                                        <span t-esc="line['code']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['product']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['uom']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['qty']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['total']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                    </td>
+                                    <td>
+                                        <div class="qty-box"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-set="load_data" t-value="report.get_general_load_data(o)"/>
+                        <div class="row text-center small" id="summary-load-box">
+                            <div class="col-4">
+                                <p style="margin:0">Quintals: <strong t-esc="load_data['quintals']"/></p>
+                            </div>
+                            <div class="col-4">
+                                <p style="margin:0">Items: <strong t-esc="load_data['items_qty']"/></p>
+                            </div>
+                            <div class="col-4">
+                                <p style="margin:0">Clients: <strong t-esc="load_data['clients']"/></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container small" id="div-return-reason" style="margin-top:50px; page-break-before: avoid;">
+                        <h3 class="header-c">Reason for return</h3>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    1 - Client doesn't have money
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    10 - Wet Product
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    18 - Client Doesn't Have Enough Space
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    27 - Billing Error
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    2 - Closed Business
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    11 - Incomplete Product
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    20 - Billed Twice
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    28 - Infestation and others for low turnover
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    4 - Wrong Product
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    12 - Truck Cannot Enter Location
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    21 - Price Error
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    29 - Faulty Container
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    5 - Client didn't Order it
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    13 - Dangerous Area
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    22 - Quality - It get's mushy
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    30 - Bad Packaging (In House)
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    6 - Address not found
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    14 - Order not Confirmed
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    23 - Quality - Much is Broken
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    31 - Appearance
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    7 - Client not in the Business Location
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    15 - Offer didn't Arrive
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    24 - Quality - Damages
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    32 - Without justification
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-3">
+                                    <p>
+                                        8 - Wrong Order Date
+                                    </p>
+                                </div>
+                                <div class="col-3">
+                                    <p>
+                                        16 - Wrong Method of Payment
+                                    </p>
+                                </div>
+                                <div class="col-3">
+                                    <p>
+                                        25 - Quality - Infestation
+                                    </p>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p>
+                                    9 - Client's Location is off-route
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    17 - Not Enough Time
+                                </p>
+                            </div>
+                            <div class="col-3">
+                                <p>
+                                    26 - Dev. Virtual Errors
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-page">
+                        <div class="row mt16 div-load-summary">
+                            <div class="col-2"><h5 t-field="o.name" class="font-weight-bold"/></div>
+                            <div class="col-5"><h5 class="title">General Load Summary</h5></div>
+                            <div class="col-5"><h5 class="font-weight-bold">Total: <span t-esc="total_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/></h5></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p><span t-field="o.driver.code"/><t t-foreach="o.assistant_ids" t-as="assistant">. <span t-field="assistant.code"/></t></p>
+                            </div>
+                            <div class="col-4 offset-5">
+                                <p t-field="o.create_date"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p t-field="o.truck_id.license_plate"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <p class="internal-line">Internal</p>
+                            </div>
+                        </div>
+                        
+                        <table class="table table-sm small mt16" name="stock_move_general_load_summary_table">
+                            <thead>
+                                <tr>
+                                    <th name="th_sm_product"><strong>Code</strong></th>
+                                    <th name="th_sm_product"><strong>Description</strong></th>
+                                    <th name="th_sm_unit"><strong>Unit</strong></th>
+                                    <th name="th_sm_quantity"><strong>Quantity</strong></th>
+                                    <th name="th_sm_total"><strong>Total </strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="summary_lines" t-as="line">
+                                    <td>
+                                        <span t-esc="line['code']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['product']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['uom']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['qty']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['total']" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <t t-set="load_data" t-value="report.get_general_load_data(o)"/>
+                        <div class="row text-center small" id="summary-load-box">
+                            <div class="col-4">
+                                <p style="margin:0">Quintals: <strong t-esc="load_data['quintals']"/></p>
+                            </div>
+                            <div class="col-4">
+                                <p style="margin:0">Items: <strong t-esc="load_data['items_qty']"/></p>
+                            </div>
+                            <div class="col-4">
+                                <p style="margin:0">Clients: <strong t-esc="load_data['clients']"/></p>
+                            </div>
+                        </div>
+                        <div class="row small" style="margin-left:5px; margin-top:70px;">
+                            <div class="col-12">
+                                <p>
+                                    Yo,&#160;<strong t-field="o.driver"/>, portador de la cédula de identidad personal número &#160;<strong t-field="o.driver.identification_id"/>, declaro bajo la fe del juramento y reconozco haber recibido de mi empleador 
+                                    <strong>Procesadora de Alimentos Prodal S. A.</strong>, en calidad, cantidad y peso correcto la mercancía listada en este documento, de la cual asumo toda la responsabilidad 
+                                    económica y material por un valor de <span t-esc="total_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" class="header-c" />, haciéndome así responsable y declarando que en caso de pérdida o mal uso de la misma pagaré con mis bienes 
+                                    económicos, físicos y materiales presentes y futuros el valor total de la misma, pudiendo ser reclamados dichos valores al momento que disponga mi empleador.
+                                    Siendo así responsable antes, durante y luego del proceso de entrega a los clientes y/o almacenes de <strong>Procesadora de Alimentos Prodal S. A.</strong>, devolviendo la cantidad 
+                                    de mercancía no entregada y/o la cantidad de dinero que entregaré en efectivo, cheques, depósitos bancarios, transferencias y/o facturas de crédito debidamente firmada 
+                                    y selladas por los clientes y/o responsable de almacén, los cuales son propiedad única y exclusiva de <strong>Procesadora de Alimentos Prodal S. A.</strong>, la presente declaración 
+                                    se realiza para dar fiel cumplimiento a las disposiciones de los artículos 44 y 45 del Código de Trabajo.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row mt32">
+                            <div class="col-4 text-center offset-4">
+                                <strong>_______________________________________</strong>
+                                <p class="mb-0"><strong t-field="o.driver"/></p>
+                                <p class="mt-0 mb-0"><strong>Bill Signature</strong></p>
+                                <span t-esc="total_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" class="mt-0"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer"/>
+            </t>
+         </t>
+    </template>
+
+    <template id="report_prodal_packing_list">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="prodal.report_prodal_packing_list_document"/>
+        </t>
+    </template>
+
+</odoo>

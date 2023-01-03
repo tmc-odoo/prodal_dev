@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="product_template_prodal_view">
+        <field name="name">product.template.prodal.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id'][1]" position="before">
+                <field name="quintales_per_ud"/>
+                <field name="quantity_pound"/>
+                <field name="is_unload_product" invisible="1"/>
+                <field name="weight_factor" attrs="{'invisible':[('is_unload_product', '=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+    </data>
+</odoo>

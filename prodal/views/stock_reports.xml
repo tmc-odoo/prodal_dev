@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="Prodal Transfers Report"
+            id="action_report_prodal_transfer"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="prodal.report_prodal_transfer"
+            file="prodal.report_prodal_transfer"
+            print_report_name="'Prodal Transfers - %s - %s' % (object.partner_id.name or '', object.name)"
+        />
+
+        <report
+            string="Prodal Internal Transfer Report"
+            id="action_report_prodal_internal_transfer"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="prodal.report_internal_prodal_transfer"
+            file="prodal.report_internal_prodal_transfer"
+            print_report_name="'Prodal Internal Transfer - %s - %s' % (object.partner_id.name or '', object.name)"
+        />
+
+        <report
+            string="Packing List"
+            id="action_report_prodal_packing_list"
+            model="stock.picking.batch"
+            report_type="qweb-pdf"
+            name="prodal.report_prodal_packing_list"
+            file="prodal.report_prodal_packing_list"
+            print_report_name="'Packing List - %s' % (object.name)"
+        />
+
+        <report
+            string="Load Squaring"
+            id="action_report_prodal_load_squaring"
+            model="stock.picking.batch"
+            report_type="qweb-pdf"
+            name="prodal.report_prodal_load_squaring"
+            file="prodal.report_prodal_load_squaring"
+            print_report_name="'Load Squaring - %s' % (object.name)"
+        />
+
+        <record id="action_report_prodal_load_squaring" model="ir.actions.report">
+            <field name="paperformat_id" ref="prodal.paperformat_prodal_report" />
+        </record>
+
+        <report
+            string="Load Truck"
+            id="action_report_load_truck"
+            model="stock.picking.batch"
+            report_type="qweb-pdf"
+            name="prodal.report_prodal_load_truck"
+            file="prodal.report_prodal_load_truck"
+            print_report_name="'Load Truck - %s' % (object.name)"
+        />
+
+        <report 
+            id="action_report_prodal_invoice_list"
+            model="prodal.invoice.list.wizard"
+            string="Invoice List"
+            report_type="qweb-pdf"
+            name="prodal.report_prodal_invoice_document"
+            file="prodal.report_prodal_invoice_document"
+            print_report_name="'Invoice List - %s' % (object.name)"
+        />
+
+        <record id="action_report_prodal_invoice_list" model="ir.actions.report">
+            <field name="paperformat_id" ref="prodal.paperformat_a4_landscape" />
+        </record>
+
+    </data>
+</odoo>

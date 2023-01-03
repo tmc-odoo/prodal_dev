@@ -1,0 +1,52 @@
+<odoo>
+        <record id="prodal_view_account_move_form" model="ir.ui.view">
+            <field name="name">account.move.view.form.prodal.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_post']" position="attributes">
+                    <attribute name="groups">account.group_account_invoice,prodal.group_invoice_menu_user</attribute>
+                </xpath>
+                <xpath expr="//header[1]/button[6]" position="attributes">
+                      <attribute name="groups">account.group_account_invoice,prodal.group_invoice_menu_user</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_reverse']" position="attributes">
+                      <attribute name="groups">account.group_account_invoice,prodal.group_invoice_menu_user</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_duplicate']" position="attributes">
+                      <attribute name="groups">account.group_account_invoice,prodal.group_invoice_menu_user</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_cancel']" position="attributes">
+                      <attribute name="groups">account.group_account_invoice,prodal.group_invoice_menu_user</attribute>
+                </xpath>
+                <xpath expr="//button[@name='button_draft']" position="attributes">
+                      <attribute name="groups">account.group_account_invoice,prodal.group_invoice_menu_user</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='product_uom_id']" position="after">
+                    <field name="qq" optional="hide"/>
+                </xpath>
+                <!-- in other to the field to save the value I had to add it to line_ids too -->
+                <xpath expr="//field[@name='line_ids']/tree" position="inside">
+                    <field name="qq" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='amount_untaxed']" position="before">
+                    <field name="total_no_discount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                </xpath>
+                <xpath expr="//field[@name='amount_untaxed']" position="after">
+                    <field name="total_discount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                </xpath>
+            </field>
+        </record>
+
+        <!-- <record id="prodal_view_account_move_line_form" model="ir.ui.view">
+            <field name="name">account.move.line.view.form.prodal.inherit</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='quantity']" position="after">
+                    <field name="fleet_id" />
+                </xpath>
+            </field>
+        </record> -->
+
+</odoo>

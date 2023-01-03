@@ -1,0 +1,28 @@
+<odoo>
+    <record model="ir.ui.view" id="res_account_prodal_inherited_view">
+        <field name="name">res.config.account.prodal.inherited.view</field>
+        <field name="model">res.config.settings</field>
+        <field name='inherit_id' ref='account.res_config_settings_view_form'/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='account']" position="inside">
+                <h2>Journal Report Payment</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box" title="Commission Percent">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Payment Methods</span>
+                            <div class="text-muted">
+                                Only print moves with these payment methods in the journal report when the payment check option is selected.
+                            </div>
+                            <div class="content-group">
+                                <div class="row">
+                                    <field name="check_report_payment_method_ids" widget="many2many_tags"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

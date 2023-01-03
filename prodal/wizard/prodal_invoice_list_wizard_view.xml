@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="prodal_invoice_list_wizard_view" model="ir.ui.view">
+            <field name="name">prodal.invoice.list.wizard.view</field>
+            <field name="model">prodal.invoice.list.wizard</field>
+            <field name="arch" type="xml">
+            <form string="Report Options">
+                <group col="4">
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </group>
+                <group>
+                    <field name="user_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print" type="object" default_focus="1" class="oe_highlight"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel" />
+                </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="action_prodal_invoice_list_menu" model="ir.actions.act_window">
+            <field name="name">Invoice List Report</field>
+            <field name="res_model">prodal.invoice.list.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="prodal_invoice_list_wizard_view"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            id="menu_prodal_invoice_list"
+            name="Invoice List"
+            parent="account_reports.account_reports_audit_reports_menu"
+            action="action_prodal_invoice_list_menu"
+            groups="account.group_account_invoice"
+           />
+    </data>
+</odoo>

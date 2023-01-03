@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_internal_prodal_transfer">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="prodal.prodal_external_layout_without_header">
+                        <div class="page">
+                            <div class="packing-list-header">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <h6 t-field="o.name" class="font-weight-bold"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <h6 class="title text-center mb16">Procesadora de Alimentos Prodal, S. A</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 offset-3">
+                                        <h6 id="report-title" class="text-center mt16 mb16">Internal Transfer Report</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3 offset-9">
+                                        <p class="font-weight-bold text-center mt16"><strong>Date:&#160;&#160;</strong><span t-field="o.date"  t-options="{'format': 'MM/dd/YYYY'}"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="separator thin-margin"/>
+                            <div class="fs-11">
+                            <div class="row">
+                                <div class="col-6" name="div_outgoing_address">
+                                    <p><strong>Embark From: </strong><span t-field="o.location_dest_id"/></p>
+                                </div>
+                                <div class="col-5 offset-1" name="div_incoming_address">
+                                    <p><strong>Deliver To: </strong><span t-field="o.location_id"/></p>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="mb32">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Transfer No: <span t-field="o.name"/></p>
+                                    </div>
+                                    <div class="col-6">
+                                       <p>Introduction Date: <span t-field="o.create_date"/></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p>Freight Type: <span t-field="o.freight_type"/></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                       <p>
+                                        Carrier: <t t-if="o.freight_type == 'ext'"><span t-field="o.truck_id.license_plate"/></t>
+                                                 <t t-elif="o.freight_type == 'ext'"><span t-field="o.driver_ext_plate"/></t>
+                                                 <t t-if="o.driver"><span class="font-weight-bold" t-field="o.driver"/></t>
+                                                 <t t-if="o.assistant_ids">,<span t-field="o.assistant_ids"/></t>
+                                       </p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <table class="table table-sm fs-12" t-if="o.move_ids_without_package">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <strong>Item No.</strong>
+                                        </th>
+                                        <th name="th_product">
+                                            <strong>Product</strong>
+                                        </th>
+                                        <th>
+                                            <strong>UM</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Qty Ordered</strong>
+                                        </th>
+                                        <th>
+                                            <strong>Pkg Emb.</strong>
+                                        </th>
+                                        <th>
+                                            <strong>QQ/Emb.</strong>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="o.move_ids_without_package.sorted(key=lambda ml: ml.location_id.id)" t-as="ml">
+                                        <tr>
+                                            <td>
+                                                <span t-field="ml.product_id.default_code"/><br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="ml.product_id.display_name"/><br/>
+                                                <span t-field="ml.product_id.description_picking"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="ml.product_uom"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="ml.product_uom_qty"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="ml.quantity_done"/>
+                                            </td>
+                                                <td>
+                                                <span t-esc="ml.product_id.quintales_per_ud * ml.quantity_done"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <table class="table table-sm" t-if="o.package_level_ids and o.picking_type_entire_packs and o.state in ['assigned', 'done']">
+                                <thead>
+                                    <tr>
+                                        <th name="th_package">Package</th>
+                                        <th name="th_pko_from" t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">From</th>
+                                        <th name="th_pki_from" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">To</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="o.package_level_ids.sorted(key=lambda p: p.package_id.name)" t-as="package">
+                                        <t t-set="package" t-value="package.with_context(picking_id=o.id)" />
+                                        <td name="td_pk_barcode">
+                                            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', package.package_id.name, 600, 100)" style="width:300px;height:50px; margin-left: -50px;" alt="Barcode"/><br/>
+                                        </td>
+                                        <td t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">
+                                            <span t-field="package.location_id"/>
+                                        </td>
+                                        <td t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+                                            <span t-field="package.location_dest_id"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <t t-set="no_reserved_product" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.move_line_ids and x.state!='done')"/>
+                            <!-- <p t-field="o.note"/> -->
+                            <div class="row fs-11">
+                                <div class="col-2 offset-8">
+                                    <p class="underline"><strong>Total QQ Emb. </strong></p>
+                                </div> 
+                                <div class="col-2">
+                                    <span t-esc="sum(o.move_ids_without_package.mapped(lambda ml: ml.product_id.quintales_per_ud * ml.quantity_done))"/>
+                                </div>    
+                            </div>
+                            <div class="signature-container row fs-11">
+                                <div class="col-3 offset-2">
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <input type="text" class="signature-sm"/>
+                                            <p><strong t-field="o.driver"/> <strong>(Truker)</strong></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <p><strong>Received By</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3 offset-2">
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <input type="text" class="signature-sm"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <strong t-field="o.user_id"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                            <p><strong>Delivered By </strong></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="text-center col-12">
+                                             <p class="small"><strong t-field="o.location_id"/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="signature-container row fs-11">
+                                <div class="col-6 text-center mx-auto">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <input type="text" class="signature-sm"/>
+                                            <p><strong>Name</strong></p> 
+                                            <p class="small"><strong t-field="o.location_dest_id"/></p>    
+                                        </div>
+                                        <div class="col-5 offset-2">
+                                            <input type="text" class="signature-sm"/>
+                                            <p><strong>Signature</strong></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p><strong>Checked by</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <t t-if="o.freight_type == 'ext'">
+                                        <p><strong>Note:&#160;</strong> <span t-field="o.driver_ext"/> <span t-field="o.driver_ext_id"/></p>
+                                    </t>
+                                </div> 
+                            </div>
+                            <t t-set="total_price" t-value="sum(o.move_ids_without_package.mapped(lambda m: m.product_id.list_price * m.quantity_done))"/>
+                            <div class="row footer-text">
+                                <div class="col-12">
+                                    <p class="small ">
+                                        Yo,&#160;<strong t-field="o.driver"/>, portador de la cédula de identidad personal número &#160;<strong t-field="o.driver.identification_id"/>, declaro bajo la fe del juramento y reconozco haber recibido de mi empleador 
+                                        <strong>Procesadora de Alimentos Prodal S. A.</strong>, en calidad, cantidad y peso correcto la mercancía listada en este documento, de la cual asumo toda la responsabilidad 
+                                        económica y material por un valor de <span t-esc="total_price" t-options="{'widget': 'monetary', 'display_currency': res_company.currency_id}" class="header-c" />, haciéndome así responsable y declarando que en caso de pérdida o mal uso de la misma pagaré con mis bienes 
+                                        económicos, físicos y materiales presentes y futuros el valor total de la misma, pudiendo ser reclamados dichos valores al momento que disponga mi empleador.
+                                        Siendo así responsable antes, durante y luego del proceso de entrega a los clientes y/o almacenes de <strong>Procesadora de Alimentos Prodal S. A.</strong>, devolviendo la cantidad 
+                                        de mercancía no entregada y/o la cantidad de dinero que entregaré en efectivo, cheques, depósitos bancarios, transferencias y/o facturas de crédito debidamente firmada 
+                                        y selladas por los clientes y/o responsable de almacén, los cuales son propiedad única y exclusiva de <strong>Procesadora de Alimentos Prodal S. A.</strong>, la presente declaración 
+                                        se realiza para dar fiel cumplimiento a las disposiciones de los artículos 44 y 45 del Código de Trabajo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_prodal_picking_type_label">
+            <t t-call="web.basic_layout">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                                    <tr>
+                                      <th style="text-align: center;">
+                                        <span t-field="o.name"/>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                        <td name="td_pt_barcode" style="text-align: center; vertical-align: middle;" class="col-5">
+                                            <img t-if="o.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.barcode, 600, 150)" style="width:100%;height:20%;"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

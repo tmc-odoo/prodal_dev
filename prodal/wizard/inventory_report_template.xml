@@ -1,0 +1,75 @@
+<odoo>
+    <report 
+        id="inventory_report"
+        model="inventory.report.wizard"
+        string="Inventory Printed Reprort"
+        report_type="qweb-pdf"
+        name="prodal.inventory_report_view"
+        menu="False"
+    />
+
+    <record id="inventory_report" model="ir.actions.report">
+        <field name="paperformat_id" ref="paperformat_prodal_inventory_report" />
+    </record>
+
+    <template id="inventory_report_view">
+        <t t-call="web.basic_layout">
+            <t t-set="format_number" t-value="lambda v: '{:,.2f}'.format(v)" />
+            <div class="row">
+                <h4 class="w-700px">Inventory Report</h4>
+                <h6 class="mr-0">
+                    <t t-esc="datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-4))).strftime('%d/%m/%Y %I:%M%p')" />
+                </h6>
+            </div>
+            <table name='main_table' class="table table-borderless">
+                <thead>
+                    <th name='description'>Description</th>
+                    <th name='available'>Available</th>
+                    <th name='committed'>Committed</th>
+                    <th name='difference'>Difference</th>
+                    <th name='max_stock'>Stock Max</th>
+                    <th name='min_stock'>Stock Min</th>
+                    <th name='qty_produce'>Qty. to Produce</th>
+                    <th name='entry'>Entry</th>
+                </thead>
+                <tbody>
+                    <t t-foreach="categories" t-as="catg">
+                        <tr>
+                            <td>
+                                <span class="font-weight-bold" t-esc="catg" />
+                            </td>
+                        </tr>
+                        <t t-foreach="total" t-as="ttl">
+                            <tr class="fs-14px" t-if="ttl['categ_id'] == catg">
+                                <td class="w-100pc">
+                                    <span class="text-center" t-esc="ttl['name']" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="format_number(ttl['available'])" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="format_number(ttl['committed'])" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="format_number(ttl['difference'])" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="format_number(ttl['stock_max'])" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="format_number(ttl['stock_min'])" />
+                                </td>
+                                <td name="qty_produce" class="text-center">
+                                    <span t-esc="format_number(ttl['qty_to_produce'])" />
+                                </td>
+                                <td class="text-center">
+                                    <span t-esc="format_number(ttl['entry'])" />
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+                </tbody>
+            </table>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="stock_picking_validation_message_template">
+        <p>
+            <span>
+                The picking 
+                <a href="#" data-oe-model="stock.picking" t-attf-data-oe-id="#{id}">
+                    <t t-esc="name"/>
+                </a> 
+                has been validated!
+            </span>
+        </p>
+    </template>
+</odoo>

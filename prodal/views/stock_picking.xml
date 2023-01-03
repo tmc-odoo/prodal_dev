@@ -1,0 +1,198 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="stock_picking_prodal_view">
+        <field name="name">stock.picking.prodal.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin'][1]" position="after">
+                    <field name="show_freight_type" invisible="1"/>
+                    <field name="user_to_notify"/>
+                    <field name="freight_type" attrs="{'invisible':[('show_freight_type', '=', False)]}"/>
+                    <field name="sale_zone_id"/>
+                    <field name="sale_notes"/>
+                    <field name="quintal_total" readonly="1" force_save="1"/>
+                </xpath>
+                <xpath expr="//field[@name='picking_type_id'][1]" position="after">
+                    <field name="driver_ext" attrs="{'invisible':[('freight_type', '!=', 'ext')]}"/>
+                    <field name="driver_ext_plate" attrs="{'invisible':[('freight_type', '!=', 'ext')]}"/>
+                    <field name="driver_ext_id" attrs="{'invisible':[('freight_type', '!=', 'ext')]}"/>
+                </xpath>
+               <xpath expr="//sheet[1]//group[1]" position="inside">
+                    <field name="show_vehicle_fields" invisible="1"/>
+                    <group string="Vehicle" attrs="{'invisible':['|', ('show_vehicle_fields', '=', False), ('freight_type', '=', 'ext')]}">
+                            <field name="truck_id"/>
+                            <field name="driver"/>
+                            <field name="assistant_ids" widget="many2many_tags"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook[1]" position="after">
+                    <group>
+                        <field name="sale_note" nolabel="1" placeholder="Terms and conditions..."/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='backorder_id'][1]" position="after">
+                    <field name="unload_factor" invisible="1"/>
+                        <label for="unload_price" attrs="{'invisible':[('unload_factor', '=', 0)]}"/>
+                        <div class="o_row" attrs="{'invisible':[('unload_factor', '=', 0)]}">
+                            <field name="unload_price" widget="monetary" options="{'currency_field': 'res_company.currency_id'}"/>
+                            <button name="get_unload_price" type="object" string="Calculate Value"/>
+                        </div>
+                </xpath>
+                <xpath expr="//header" position="inside">
+                    <button name="%(action_picking_change_operation)d" string="Change picking type"
+                        attrs="{'invisible': ['|', ('state', 'not in', ('waiting', 'confirmed')), ('picking_type_code', '!=', 'outgoing')]}"
+                        type="action"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="stock_picking_type_prodal_view">
+        <field name="name">stock.picking.type.prodal.inherit</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='show_operations'][1]" position="after">
+                    <field name="show_vehicle_fields"/>
+                    <field name="show_freight_type"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="stock_picking_prodal_search_view">
+        <field name="name">stock.picking.search.prodal.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='picking_type'][1]" position="after">
+                    <filter string="Salesperson" name="salesperson" domain="[]" context="{'group_by': 'salesperson'}"/>
+                    <filter string="Sale Zone" name="sale_zone_id" domain="[]" context="{'group_by': 'sale_zone_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="stock_picking_batch_prodal_view">
+        <field name="name">stock.picking.batch.prodal.inherit</field>
+            <field name="model">stock.picking.batch</field>
+            <field name="inherit_id" ref="stock_picking_batch.stock_picking_batch_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet[1]//group[1]" position="inside">
+                        <group string="Vehicle">
+                            <field name="truck_id"/>
+                            <field name="driver"/>
+                            <field name="assistant_ids" widget="many2many_tags"/>
+                            <field name="quintal_limit"/>
+                        </group>
+                </xpath>
+                <xpath expr="//sheet[1]//group[1]" position="attributes">
+                        <attribute name="col">2</attribute>
+                </xpath>
+                <xpath expr="//sheet[1]//group[1]//group[1]" position="attributes">
+                        <attribute name="string">General</attribute>
+                </xpath>
+
+                <xpath expr="//separator[1]" position="attributes">
+                     <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+
+                <xpath expr="//sheet[1]//group[1]//group[1]" position="inside">
+                    <field name="quintal_total" readonly="1" force_save="1"/>
+                    <label for="unload_price"/>
+                    <div class="o_row">
+                        <field name="unload_price" widget="monetary" options="{'currency_field': 'res_company.currency_id'}"/>
+                        <button name="get_unload_price" type="object" string="Calculate Value"/>
+                    </div>
+                </xpath>
+                <xpath expr="//sheet[1]//field[@name='picking_ids']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+                <xpath expr="//sheet[1]//field[@name='picking_ids']" position="after">
+                        <notebook>
+                            <page string="Transfers" name="transfers">
+                                <field name="picking_ids" widget="many2many" options="{'not_delete': True}" mode="tree,kanban">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="scheduled_date"/>
+                                        <field name="location_id"/>
+                                        <field name="backorder_id"/>
+                                        <field name="origin"/>
+                                        <field name="state"/>
+                                        <button name="action_assign" string="Confirm picking" type="object" icon="fa-check text-success" attrs="{'invisible': [('state', 'in', ('done', 'cancel', 'confirmed', 'assigned'))]}"/>
+                                        <button name="action_cancel" string="Cancel picking" type="object" icon="fa-times-circle text-danger" attrs="{'invisible': [('state', 'in', ('done', 'cancel'))]}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Products" name="products">
+                                <field name="move_join_ids" mode="tree,kanban" options="{'not_delete': True}">
+                                    <tree  string="Stock Moves" editable="bottom">
+                                       <field name="product_id" readonly="1"/>
+                                       <field name="qty_done_total_batch" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="stock_picking_prodal_list_view">
+            <field name="name">stock.picking.list.prodal.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.vpicktree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id'][1]" position="after">
+                    <field name="partner_name"/>
+                    <field string="QQ" name="quintal_total" sum="Quintal Total" widget="monetary" optional="show"/>
+                    <field name="days_since_creation"/>
+                    <field name="salesperson"/>
+                    <field name="sale_zone_id"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id'][1]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+        <record id="stock_picking_batch_tree_report" model="ir.ui.view">
+            <field name="name">stock.picking.batch.tree.report</field>
+            <field name="model">stock.picking</field>
+            <field name="priority">99</field>
+            <field name="arch" type="xml">
+                <tree string="Stock picking batch report">
+                    <field name="batch_id"/>
+                    <field name="batch_created_uid"/>
+                    <field name="batch_created_date"/>
+                    <field name="name"/>
+                    <field name="batch_quintal_total"/>
+                    <field name="picking_type_id"/>
+                    <field name="state" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="stock_picking_batch_pivot_report" model="ir.ui.view">
+            <field name="name">stock.picking.batch.pivot.report</field>
+            <field name="model">stock.picking</field>
+            <field name="arch" type="xml">
+                <pivot string="Stock picking batch report" disable_linking="True">
+                    <field name="batch_id"/>
+                    <field name="batch_created_uid"/>
+                    <field name="batch_created_date"/>
+                    <field name="name"/>
+                    <field name="batch_quintal_total" type="measure"/>
+                    <field name="picking_type_id"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="stock_picking_batch_tree_report_action" model="ir.actions.act_window">
+            <field name="name">Stock picking batch report</field>
+            <field name="res_model">stock.picking</field>
+            <field name="domain">[('batch_id', '!=', False), ('state', '=', 'done')]</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id" ref="stock_picking_batch_tree_report"/>
+        </record>
+
+        <menuitem id="stock_picking_batch_tree_report_menu"
+                parent="stock.menu_warehouse_report" sequence="80"
+                name="Stock picking batch report"
+                action="stock_picking_batch_tree_report_action"/>
+    </data>
+</odoo>

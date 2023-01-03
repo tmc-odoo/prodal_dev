@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="sale_order_prodal_view">
+        <field name="name">sale.order.prodal.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='payment_term_id'][1]" position="after">
+                <field name="zone_id"/>
+                <field name="blocked" force_save="1" groups="sales_team.group_sale_manager"/>
+                <field name="notes"/>
+                <field name="sale_discount" invisible="1" />
+            </xpath>
+            <xpath expr="//field[@name='order_line'][1]" position="attributes">
+                <attribute name="context" >{'default_discount': sale_discount}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='amount_untaxed']" position="before">
+                <field name="total_no_discount"  widget="monetary" options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_untaxed']" position="after">
+                <field name="total_discount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+            </xpath>
+        </field>
+        </record>
+    </data>
+</odoo>

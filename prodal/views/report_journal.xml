@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<template id="report_journal_prodal" inherit_id="account.report_journal">
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[8]" position="attributes">
+        <attribute name="style">display: none;</attribute>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/thead[1]/tr[1]/th[8]" position="attributes">
+        <attribute name="style">display: none;</attribute>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[6]/span[1]" position="attributes">
+        <attribute name="t-if">not amount_curr</attribute>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[7]/span[1]" position="attributes">
+        <attribute name="t-if">not amount_curr</attribute>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[6]/span[1]" position="after">
+        <span t-if="amount_curr and aml.amount_currency &gt;= 0" t-esc="abs(aml.amount_currency)" t-options="{'widget': 'monetary', 'display_currency': aml.currency_id or default_curr}"/>
+        <span t-elif="amount_curr" t-esc="0.00" t-options="{'widget': 'monetary', 'display_currency': aml.currency_id or default_curr}"/>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[7]/span[1]" position="after">
+        <span t-if="amount_curr and aml.amount_currency &lt;= 0" t-esc="abs(aml.amount_currency)" t-options="{'widget': 'monetary', 'display_currency': aml.currency_id or default_curr}"/>
+        <span t-elif="amount_curr" t-esc="0.00" t-options="{'widget': 'monetary', 'display_currency': aml.currency_id or default_curr}"/>
+    </xpath>
+        <xpath expr="//t[@t-set='data_report_margin_top']" position="replace">
+            <t t-set="data_report_margin_top" t-value="20"/>
+        </xpath>
+        <xpath expr="//t[@t-set='data_report_header_spacing']" position="replace">
+            <t t-set="data_report_header_spacing" t-value="15"/>
+        </xpath>
+    <xpath expr="//div[hasclass('page')]/div[1]/div[3]/p[2]" position="replace">
+        <p t-if="data['form'].get('sort_selection') == 'date'">
+        <t t-if="data['form']['date_from']"><strong>From: </strong> <t t-esc="data['form']['date_from']"/> </t>  
+        <t t-if="data['form']['date_to']"><strong> To: </strong> <t t-esc="data['form']['date_to']"/></t> 
+        </p>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/thead[1]/tr[1]/th[5]" position="after">
+        <th>Check </th>
+        <th>Check description</th>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[1]" position="before">
+        <t t-set="cancelled_payments" t-value="aml.move_id.cancelled_payment_ids"/>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[1]/span[1]" position="attributes">
+        <attribute name="t-att-class">'alert-danger' if cancelled_payments else None</attribute>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/thead[1]/tr[1]/th[3]" position="replace">
+        <th>Payment type</th>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/thead[1]/tr[1]/th[9]" position="after">
+        <th>Balance</th>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]" position="before">
+        <t t-set="blnc" t-value="balance[o.id]"/>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[5]" position="after">
+        <td>
+            <t t-foreach="aml.payment_id" t-as="payment"> 
+                <t t-esc="payment.check_number"> </t>
+            </t>
+        </td>
+        <td>
+            <t t-foreach="aml.payment_id" t-as="payment"> 
+                <t t-if="payment.communication" t-esc="payment.communication[:20]"/>
+            </t>
+            <span t-if="cancelled_payments">
+                Cancellation <span t-esc="cancelled_payments[0].check_number or ''"/>
+            </span>
+        </td>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[3]" position="replace">
+        <td>
+            <t t-foreach="aml.payment_id" t-as="payment">
+                <t t-esc="payment.payment_method_id.name" />
+            </t>
+        </td>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]/td[9]" position="after">
+        <td>
+            <t t-if="amount_curr">
+                <t t-set="blnc" t-value="blnc + aml.amount_currency"/>
+                <t t-esc="blnc" t-options="{'widget': 'monetary', 'display_currency': aml.currency_id or default_curr}"/>
+            </t>
+            <t t-else="">
+                <t t-set="blnc" t-value="blnc + aml.debit - aml.credit"/>
+                <t t-esc="blnc" t-options="{'widget': 'monetary', 'display_currency': default_curr}"/>
+            </t>
+        </td>
+    </xpath>
+    <xpath expr="//h2[1]" position="after">
+        <t t-set="amount_curr" t-value="data['form']['amount_currency']"/>
+        <t t-set="default_curr" t-value="(company_id or res_company).currency_id"/>
+        <t t-if="amount_curr and lines[o.id].mapped('currency_id')" t-set="curr" t-value="lines[o.id].mapped('currency_id')[0]"/>
+    </xpath>
+    <xpath expr="//div[hasclass('page')]/table[1]/tbody[1]/tr[1]" position="before">
+        <tr>
+             <td colspan="9"><span>Initial balance</span></td>
+             <td>
+                <span t-if="amount_curr" t-esc="balance[o.id]" t-options="{'widget': 'monetary', 'display_currency': curr or default_curr}"/>
+                <span t-else="" t-esc="balance[o.id]" t-options="{'widget': 'monetary', 'display_currency': default_curr}"/>
+             </td>
+        </tr>
+    </xpath>
+    <xpath expr="//tr[@t-foreach='taxes'][1]/td[2]/span[1]" position="replace">
+        <span t-if="amount_curr" t-esc="taxes[tax]['base_amount']" t-options="{'widget': 'monetary', 'display_currency': curr or default_curr}"/>
+        <span t-else="" t-esc="taxes[tax]['base_amount']" t-options="{'widget': 'monetary', 'display_currency': default_curr}"/>
+    </xpath>
+    <xpath expr="//tr[@t-foreach='taxes'][1]/td[3]/span[1]" position="replace">
+        <span t-if="amount_curr"  t-esc="taxes[tax]['tax_amount']" t-options="{'widget': 'monetary', 'display_currency': curr or default_curr}"/>
+        <span t-else="" t-esc="taxes[tax]['tax_amount']" t-options="{'widget': 'monetary', 'display_currency': default_curr}"/>
+    </xpath>
+    <xpath expr="//div[@class='row justify-content-end'][1]//td[2]/span[1]" position="replace">
+        <span t-if="amount_curr" t-esc="sum(lines[o.id].mapped(lambda l: abs(l.amount_currency) if l.amount_currency &gt;0 else 0))" t-options="{'widget': 'monetary', 'display_currency': curr or default_curr}"/>
+        <span t-else="" t-esc="sum_debit(data, o)" t-options="{'widget': 'monetary', 'display_currency': default_curr}"/>
+    </xpath>
+    <xpath expr="//div[@class='row justify-content-end'][1]//td[3]/span[1]" position="replace">
+        <span t-if="amount_curr" t-esc="sum(lines[o.id].mapped(lambda l: abs(l.amount_currency) if l.amount_currency &lt;0 else 0))" t-options="{'widget': 'monetary', 'display_currency': curr or default_curr}"/>
+        <span t-else="" t-esc="sum_credit(data, o)" t-options="{'widget': 'monetary', 'display_currency': default_curr}"/>
+    </xpath>
+</template>
+</data>
+</odoo>

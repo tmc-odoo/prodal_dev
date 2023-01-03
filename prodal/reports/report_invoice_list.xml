@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <template id="report_prodal_invoice_document">
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="40"/>
+                <t t-set="data_report_header_spacing" t-value="40"/>
+                <t t-call="prodal_reports.external_prodal_layout_standard">
+                    <div class="page">
+                        <h2  class="text-center mt128"><span>Invoice List</span></h2>
+                        <table class="table table-condensed mt48">
+                            <thead class='reapeat-header'>
+                                <tr>
+                                    <th name="th_codigo"><span>RNC</span></th>
+                                    <th name="th_client"><span>Client</span></th>
+                                    <th name="th_inv_num"><span>Invoice Number</span></th>
+                                    <th name="condition"><span>Condition</span></th>
+                                    <th name="inv_date"><span>Invoice Date</span></th>
+                                    <th name="due_date"><span>Due Date</span></th>
+                                    <th name="amount"><span>Amount</span></th>
+                                    <th name="amount_paid"><span>Amount Paid</span></th>
+                                    <th name="balance_due"><span>Balance Due</span></th>
+                                    <th name="dayse_passed"><span>Days Passed</span></th>
+                                    <th name="days_overdue"><span>Days Overdue</span></th>
+                                    <th name="comments"><span>Comments</span></th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="inv_groups" t-as="group">
+                                    <t t-set="salesperson" t-value="group[0]"/>
+                                    <t t-set="inv_client_groups" t-value="group[1]"/>
+                                    <tr class="borderless"><td colspan="12"><span class="header-c" t-esc="salesperson.name"/></td></tr>
+                                    <t t-foreach="inv_client_groups" t-as="client_grp">
+                                        <t t-set="client" t-value="client_grp[0]"/>
+                                        <t t-set="invoices" t-value="client_grp[1]"/>
+                                        <tr t-foreach="invoices" t-as="inv">
+                                            <td><span t-field="inv.partner_id.vat"/></td>
+                                            <td><span t-field="inv.partner_id.name"/></td>
+                                            <td><span t-field="inv.name"/></td>
+                                            <td><span t-field="inv.invoice_payment_term_id"/></td>
+                                            <td><span t-field="inv.invoice_date"/></td>
+                                            <td><span t-field="inv.invoice_date_due"/></td>
+                                            <td><span t-field="inv.amount_total"/></td>
+                                            <td><span t-esc="inv.amount_total - inv.amount_residual" t-options="{'widget': 'monetary', 'display_currency': currency}"/></td>
+                                            <td><span class="text-danger float-right" t-field="inv.amount_residual"/></td>
+                                            <td><span t-field="inv.elapsed_days"/></td>
+                                            <td><span t-field="inv.days_since_expiration"/></td>
+                                            <td><input type="text" class="line-md-2"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="8"/>
+                                            <td>
+                                                <div>
+                                                    <input class="line-md-2 d-block h-5px"/>
+                                                    <t t-set="suma" t-value="sum(invoices.filtered(lambda x: x.type == 'out_invoice').mapped('amount_residual')) - sum(invoices.filtered(lambda x: x.type == 'out_refund').mapped('amount_residual') or [0])"/>
+                                                    <span  class="float-right mt4" t-esc="suma" t-options="{'widget': 'monetary', 'display_currency': currency}" />
+
+                                                </div>
+                                            </td>
+                                                <td colspan="3"/>
+                                        </tr>
+                                    </t>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div>
+                            <span>Fecha y hora de impresión:</span> <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

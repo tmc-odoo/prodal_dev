@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_load_truck">
+        <t t-call="web.html_container">
+            <t t-call="prodal.prodal_external_layout_without_header">
+                <t t-set="report" t-value="o.env['prodal.report_load_truck']" />
+                <div class="page">
+                    <div class="truck-load-header">
+                        <div class="row">
+                            <div class="col-8"><h6 class="font-weight-bold">Procesadora de Alimentos Prodal, S.A</h6></div>
+                            <div class="col-4">Load No. :&#160;&#160;<strong t-field="o.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8"><h6>Shipment List Truck Route&#160;&#160;<strong>** PRESALES **</strong></h6></div>
+                            <div class="col-4">Truker:&#160;&#160;<strong t-field="o.driver"/></div>         
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Programmed Shipment Date:&#160;&#160;<strong t-field="o.create_date"/></div>
+                            <div class="col-4">Truck File:&#160;&#160;<strong t-field="o.truck_id.license_plate"/></div>
+                        </div>
+                    </div>
+
+                    <div t-foreach="report.get_picking_groups(o, 'partner')" t-as="group" class="small-font">
+                        <t t-set="partner" t-value="group[0]"/>
+                        <t t-set="pickings" t-value="group[1]"/>
+                        
+                        <t t-if="partner" name="partner_header">
+                            <div>
+                                <p><strong><span t-esc="partner.street2"/> / <span t-esc="partner.name"/></strong></p>
+                            </div>
+                        </t>
+                        <div t-foreach="pickings" t-as="picking">
+                            <span t-field="picking.sale_id"/>
+                             <table class="table table-sm" name="transfer_lines_table">
+                                <thead>
+                                    <tr>
+                                        <th name="th_sm_product"><strong>Item</strong></th>
+                                        <th name="th_sm_product"><strong>Description</strong></th>
+                                        <th name="th_sm_ord_quantity"><strong>Ord. Qty.</strong></th>
+                                        <th name="th_sm_emb_quantity"><strong>Emb. Qty.</strong></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="picking.move_lines" t-as="line">
+                                        <td>
+                                            <span t-field="line.product_id.code"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="line.product_id.name"/><span t-if="line.is_offer" class="font-weight-bold"> **OF</span>
+                                        </td>
+                                        <td>
+                                            <span t-esc="'{0:,.2f}'.format(line.product_uom_qty)"/>
+                                        </td>
+                                        <td>
+                                            <span t-esc="'{0:,.2f}'.format(line.quantity_done)"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <hr class="separator thin-margin"/>
+                    </div>
+                    <div class="single-page">
+                        <div class="row">
+                            <div class="col-4 offset-8">Load No. :&#160;&#160;<strong t-field="o.name"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 offset-8">Truker:&#160;&#160;<strong t-field="o.driver"/></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">Programmed Shipment Date:&#160;&#160;<strong t-field="o.create_date"/></div>
+                            <div class="col-4 mb-4">Truck File:&#160;&#160;<strong t-field="o.truck_id.license_plate"/></div>
+                        </div>
+                        <h4 class="text-center title-2">Embarked Products Summary</h4>
+                        <t t-set="summary_lines" t-value="report.get_picking_summary(batch=o)"/>
+                        <table class="table table-sm" name="embarked_products_summary_table">
+                            <thead>
+                                    <tr>
+                                        <th name="th_sm_product_code"><strong>Code</strong></th>
+                                        <th name="th_sm_product"><strong>Product</strong></th>
+                                        <th name="th_sm_unit_of_measure"><strong>Unit</strong></th>
+                                        <th name="th_sm_warehose"><strong>Warehouse</strong></th>
+                                        <th name="th_sm_ord_quantity"><strong>Quantity</strong></th>
+                                        <th name="th_sm_quintals"><strong>Quintals</strong></th>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="summary_lines" t-as="line">
+                                    <td>
+                                        <span t-esc="line['code']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['product']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['uom']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line['warehouse']"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{0:,.2f}'.format(line['qty'])"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="'{0:,.2f}'.format(line['quintals'])"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3"/>
+                                    <td>
+                                        <p>Total ---></p>
+                                    </td>
+                                    <td>
+                                        <p><strong class="total"><t t-esc="'{0:,.2f}'.format(sum(map(lambda l: l['qty'], summary_lines)))"/></strong></p>
+                                    </td>
+                                    <td>
+                                        <p><strong class="total"><t t-esc="'{0:,.2f}'.format(sum(map(lambda l: l['quintals'], summary_lines)))"/></strong></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-4 offset-4">
+                        
+                            </div>
+                            <div class="col-4">
+                        
+                            </div>
+                        </div>
+                        <hr class="separator thin-margin"/>
+                        <t t-set="general_total" t-value="sum(map(lambda l: l['total'], summary_lines))"/>
+                        <div class="row mr-2 ml-2">
+                             <div class="col-4 offset-4">
+                                <h4 class="text-center">** PRESALES **</h4>
+                            </div>
+                        </div>
+                        <div class="signature-container row">
+                            <div class="col-4 offset-4">
+                                <div class="text-center" >
+                                    <input type="text" class="signature"/>
+                                    <p><strong>Warehouse Assistant</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer"/>
+            </t>
+         </t>
+    </template>
+
+    <template id="report_prodal_load_truck">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="prodal.report_load_truck"/>
+        </t>
+    </template>
+
+</odoo>

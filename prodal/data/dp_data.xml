@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="sale_discount_dp" model="decimal.precision">
+        <field name="name">Sale Discount</field>
+        <field name="digits">4</field>
+    </record>
+
+</odoo>

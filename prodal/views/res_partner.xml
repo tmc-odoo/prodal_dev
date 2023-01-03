@@ -1,0 +1,39 @@
+<odoo>
+        <record model="ir.ui.view" id="res_partner_prodal_form_view">
+            <field name="name">res.partner.prodal.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat'][1]" position="after">
+                    <field name="is_unload_client"/>
+                    <field name="unload_factor" attrs="{'invisible':[('is_unload_client', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//group[@name='sale'][1]" position="inside">
+                    <field name="last_sale"/>
+                    <field name="last_sale_date"/>
+                    <field name="visit_weekday"/>
+                </xpath>
+                <xpath expr="//field[@name='ref']" position="before">
+                    <field name="code_reference"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="res_partner_prodal_tree_view">
+            <field name="name">res.partner.prodal.tree.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='display_name']" position="after">
+                    <field name="ref" optional='show'/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="before">
+                    <field name="street" optional='show'/>
+                </xpath>
+                <xpath expr="//field[@name='state_id']" position="after">
+                    <field name="last_sale" optional="show"/>
+                    <field name="last_sale_date" optional="show"/>
+                    <field name="visit_weekday" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

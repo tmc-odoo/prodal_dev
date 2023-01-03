@@ -1,0 +1,40 @@
+<odoo>
+    <report 
+        id="inventory_quintals_report"
+        model="inventory.report.wizard"
+        string="Inventory Quintals Report"
+        report_type="qweb-pdf"
+        name="prodal.inventory_report_quintals"
+        menu="False" 
+    />
+
+    <record id="inventory_quintals_report" model="ir.actions.report">
+        <field name="paperformat_id" ref="paperformat_prodal_inventory_report" />
+    </record>
+
+    <template id="inventory_report_quintals" inherit_id="prodal.inventory_report_view" primary="True">
+        <xpath expr="//h4[1]" position="replace">
+            <h4 class="w-700px">Inventory Quintals Report</h4>
+        </xpath>
+        <xpath expr="//table[@name='main_table']//th[@name='qty_produce']" position="replace">
+            <th name='quintals'>Quintals</th>
+        </xpath>
+        <xpath expr="//table[@name='main_table']//td[@name='qty_produce']/span" position="replace">
+            <span t-esc="format_number(ttl['quintals'])" />
+        </xpath>
+        <xpath expr="//table[@name='main_table']" position="before">
+            <h5>Locations</h5>
+            <t t-foreach="locations" t-as="loc">
+                <h6 t-esc="loc.display_name"/>
+            </t>
+        </xpath>
+        <xpath expr="//table[@name='main_table']/tbody" position="inside">
+            <tr class="fs-14px" t-if="total">
+                <td colspan="6"/>
+                <td class="text-center">
+                    <strong t-esc="format_number(quintals_total)"  class="total"/>
+                </td>
+            </tr>
+        </xpath>
+    </template>
+</odoo>

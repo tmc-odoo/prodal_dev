@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+        <menuitem id="invoice_menu_root"
+            name = "Invoice"
+            web_icon ="account,static/description/icon.png"
+            groups="prodal.group_invoice_menu_user"/>
+
+        <menuitem id="customer_menu" 
+            name="Customers"
+            parent="invoice_menu_root"/>
+        
+        <menuitem id="vendors_menu" 
+            name="Vendors"
+            parent="invoice_menu_root"
+            groups="prodal.group_invoice_menu_user_vendors"/>
+        
+        <menuitem id="stock.menu_warehouse_report"
+            name="Report"
+            groups="stock.group_stock_user"
+            parent="stock.menu_stock_root"/>
+    </data>
+</odoo>

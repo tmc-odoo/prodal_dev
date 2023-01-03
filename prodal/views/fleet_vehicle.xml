@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="fleet_vehicle_prodal_view">
+            <field name="name">fleet.vehicle.prodal.inherit</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='driver_id'][1]" position="after">
+                    <field name="assistant_ids" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//field[@name='vin_sn'][1]" position="after">
+                    <field name="plate"/>
+                    <field name="license_plate"/>
+                    <field name="quintal_limit"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="fleet_vehicle_prodal_replace_view">
+            <field name="name">fleet.vehicle.prodal.replace.inherit</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="priority">99</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_button_box']" position="replace">
+                    <div class="oe_button_box">
+                    <button name="act_show_log_cost" type="object" class="oe_stat_button" icon="fa-usd" help="show all the costs for this vehicle" groups="fleet.fleet_group_manager">
+                        <field name="cost_count" widget="statinfo" string="Costs"/>
+                    </button>
+                    <button name="return_action_to_open" type="object" class="oe_stat_button" icon="fa-tachometer" context="{'xml_id':'fleet_vehicle_odometer_action'}" help="show the odometer logs for this vehicle">
+                        <field name="odometer_count" widget="statinfo" string="Odometer"/>
+                    </button>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

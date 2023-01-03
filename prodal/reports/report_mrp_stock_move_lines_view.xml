@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <record id="mrp_stock_move_line_tree" model="ir.ui.view">
+        <field name="name">mrp.stock.move.line.tree</field>
+        <field name="model">mrp.stock.move.line</field>
+        <field name="arch" type="xml">
+            <tree string="Report production" create="false" edit="false">
+                <field name="date"/>
+                <field name="date_planned_start"/>
+                <field name="reference"/>
+                <field name="product_id"/>
+                <field name="product_ctg_id"/>
+                <field name="qty_done"/>
+                <field name="qty_qq"/>
+                <field name="mrp_state"/>
+            </tree>
+        </field>
+    </record>
+    
+    <record id="mrp_stock_move_line_pivot" model="ir.ui.view">
+            <field name="name">mrp.stock.move.line.pivot</field>
+            <field name="model">mrp.stock.move.line</field>
+            <field name="arch" type="xml">
+                <pivot string="Report production">
+                    <field name="date" type="row"/>
+                    <field name="reference" type="row"/>
+                    <field name="product_id" type="row"/>
+                    <field name="qty_done" type="measure"/>
+                    <field name="qty_qq" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+    
+     <record id="mrp_stock_move_line_action" model="ir.actions.act_window">
+            <field name="name">Report production</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.stock.move.line</field>
+            <field name="view_mode">tree,pivot</field>
+            <field name="view_id" eval="mrp_stock_move_line_tree"/>
+        </record>
+    
+    <menuitem id="menu_mrp_production_report"
+        name="Report production"
+        parent="mrp.menu_mrp_reporting"
+        action="mrp_stock_move_line_action"
+        sequence="12"/>
+</odoo>
