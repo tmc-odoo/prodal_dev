@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="custom_report_inherit" inherit_id="l10n_do_check_printing.custom_report">
+            <xpath expr="//style" position="after">
+                <style>
+                    .check_footer_date{
+                        margin-top:<t t-esc="o.journal_id.check_layout.check_date_top"/>mm;
+                        margin-left:<t t-esc="o.journal_id.check_layout.check_date_left"/>mm;
+                        width: 40mm;
+                        position: absolute;
+                    }
+
+                    .check_date {
+                        margin-top:<t t-esc="o.journal_id.check_layout.date_top"/>mm;
+                        margin-left:<t t-esc="o.journal_id.check_layout.date_left"/>mm;
+                        width: 40mm;
+                        position: absolute;
+                        letter-spacing: 4px;
+                    }
+
+                    .date_month_left{
+                        margin-left:<t t-esc="o.journal_id.check_layout.date_month_left"/>mm;
+                        letter-spacing: 4px;
+                    }
+
+                    .date_year_left{
+                        margin-left:<t t-esc="o.journal_id.check_layout.date_year_left"/>mm;
+                        letter-spacing: 4px;
+                    }     
+
+                    .description {
+                        position: absolute;
+                        margin-left: 20px;
+                        width: 100%;
+                        margin-top:<t t-esc="o.journal_id.check_layout.description_top"/>mm;
+                        margin-left:<t t-esc="o.journal_id.check_layout.description_left"/>mm;
+
+                    }                                                                                              
+                </style>
+            </xpath>   
+ 
+
+            <xpath expr="//div[hasclass('check_body')]" position="before">  
+                <div class="description" t-if="o.journal_id.check_layout.show_description">
+                    <div class="row" t-foreach="o.invoice_line_ids" t-as="inv">
+                        <div class="col-4">
+                            <span t-field="inv.account_id"/>
+                        </div>
+                        <div class="col-4">
+                            <span t-field="inv.debit"/>
+                        </div>
+                        <div class="col-4">
+                            <span t-field="inv.credit"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath> 
+
+            <xpath expr="//div[@class='check_name']" position="replace">
+                <t t-if="(o.payment_method_code == 'check_printing')">
+                    <div class="check_name" t-esc="o.check_name"/>
+                </t>
+                <t t-else="">
+                    <div class="check_name" t-esc="page['partner_name']"/>
+                </t>
+            </xpath> 
+
+            <xpath expr="//div[@class='check_in_words']" position="replace">
+                <div class="check_in_words" t-esc="o.new_amount_in_words"/>
+            </xpath>
+
+            <xpath expr="//div[@class='check_footer_amount']" position="after">
+                <div class="check_footer_date" t-esc="page['date']"/>
+            </xpath>
+
+        </template> 
+    </data>
+</odoo>

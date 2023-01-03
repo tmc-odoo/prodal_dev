@@ -1,0 +1,735 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* diagnosis
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-17 17:45+0000\n"
+"PO-Revision-Date: 2022-01-17 17:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_product_product__article_type
+msgid ""
+"\n"
+"            Types of article:\n"
+"                simple: just a product,\n"
+"                Compound: is made of 2 or more simple products,\n"
+"        "
+msgstr ""
+"\n"
+"Tipos de artículo:\n"
+"                simple: sólo un producto,\n"
+"                Compuesto: está hecho de 2 o más productos simples,\n"
+"                 Macro: está hecho de 2 o mas productos compuestos"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_product_template__article_type
+msgid ""
+"\n"
+"            Types of article:\n"
+"                simple: just a product,\n"
+"                Compound: is made of 2 or more simple products,\n"
+"                Macro: is made of 2 or more compound products\n"
+"        "
+msgstr ""
+"\n"
+"Tipos de artículo:\n"
+"                simple: sólo un producto,\n"
+"                Compuesto: está hecho de 2 o más productos simples,\n"
+"                Macro: está hecho de 2 o más productos compuestos\n"
+"        "
+
+#. module: diagnosis
+#: model:ir.actions.report,print_report_name:diagnosis.report_invoice_insurance_conciliation
+msgid "'Insurance conciliation'"
+msgstr "'Relación aseguradora'"
+
+#. module: diagnosis
+#: model:ir.actions.report,print_report_name:diagnosis.report_invoice_insurance
+msgid "'Insurance relationship'"
+msgstr "'Conciliación aseguradora'"
+
+#. module: diagnosis
+#: model_terms:ir.ui.view,arch_db:diagnosis.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Product Insurance</span>"
+msgstr "<span class=\"o_form_label\">Producto aseguradora</span>"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__affected_box
+msgid "Affected Box"
+msgstr "Caja afectada"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Affiliate difference"
+msgstr "Diferencia Afiliado"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__affiliate_number
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__affiliate_number
+msgid "Affiliate number"
+msgstr "Número de afiliado"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Amount"
+msgstr "Monto"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_move_line__institution_coverage
+msgid "Amount covered by the institution"
+msgstr "Importe cubierto por la institución"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_move_line__insurance_coverage
+msgid "Amount covered by the insurance"
+msgstr "Importe cubierto por el seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__insurance_amount_paid
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__insurance_amount_paid
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__insurance_amount_paid
+msgid "Amount paid insurance"
+msgstr "Monto pagado seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_product_category__analytic_account_id
+msgid "Analytic account"
+msgstr "Cuenta analítica"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_product_product__article_type
+#: model:ir.model.fields,field_description:diagnosis.field_product_template__article_type
+msgid "Article type"
+msgstr "Tipo de artículo"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Attention date"
+msgstr "Fecha atención"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Cedula"
+msgstr ""
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__close_reason_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__close_reason_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__close_reason_id
+msgid "Close Reason"
+msgstr "Motivo de cierre"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_insurance_close_reason
+msgid "Close reason"
+msgstr "Motivo de cierre"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__is_closed_safe
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__is_closed_safe
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__is_closed_safe
+msgid "Closed safe"
+msgstr "Cerrado seguro"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__code_pss
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__code_pss
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__code_pss
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__code_pss
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__code_pss
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Code PSS"
+msgstr "Codigo PSS"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_res_company
+msgid "Companies"
+msgstr "Compañías"
+
+#. module: diagnosis
+#: model:ir.model.fields.selection,name:diagnosis.selection__product_template__article_type__comp
+msgid "Compound"
+msgstr "Compuesto"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de configuración"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_res_partner
+#: model:ir.model.fields.selection,name:diagnosis.selection__res_partner__partner_type__contact
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: diagnosis
+#: model:ir.actions.server,name:diagnosis.action_invoice_insurance_convert
+msgid "Convert to insurance invoice"
+msgstr "Convertir en factura aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__create_uid
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__create_date
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move_line__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_product_category__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_product_product__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_product_template__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__db_external_id
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__db_external_id
+msgid "Db External"
+msgstr "ID DB Externo"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_diagnosis_referrer
+msgid "Diagnosis Referrer"
+msgstr "Diagnosis Referidor"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_res_partner__partner_type
+#: model:ir.model.fields,help:diagnosis.field_res_users__partner_type
+msgid "Diagnosis partner clasification"
+msgstr "Clasificación de contactos de Diagnosis"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_account_move_line__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_product_category__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_product_product__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_product_template__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_res_company__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__db_external_state
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__db_external_state
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__db_external_state
+msgid "External state"
+msgstr "Estado DB externo"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__insurance_authorization
+#: model:ir.model.fields,help:diagnosis.field_account_move__insurance_authorization
+#: model:ir.model.fields,help:diagnosis.field_account_payment__insurance_authorization
+msgid "Field to describe the authorization from the insurance"
+msgstr "Campo para describir la autorización del seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_product_category__is_force_account
+msgid "Force account"
+msgstr "Forzar cuenta"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__is_insurance_move
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__is_insurance_move
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__is_insurance_move
+msgid "Has invoce insurance"
+msgstr "Es factura aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move_line__id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__id
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__id
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__id
+#: model:ir.model.fields,field_description:diagnosis.field_product_category__id
+#: model:ir.model.fields,field_description:diagnosis.field_product_product__id
+#: model:ir.model.fields,field_description:diagnosis.field_product_template__id
+#: model:ir.model.fields,field_description:diagnosis.field_res_company__id
+#: model:ir.model.fields,field_description:diagnosis.field_res_config_settings__id
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__id
+msgid "ID"
+msgstr "ID (identificación)"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__institution_partner_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__institution_partner_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__institution_partner_id
+#: model:ir.model.fields.selection,name:diagnosis.selection__res_partner__partner_type__institution
+msgid "Institution"
+msgstr "Institución"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_move_line__institution_coverage
+msgid "Institution coverage"
+msgstr "Cobertura Institución"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__institution_partner_id
+#: model:ir.model.fields,help:diagnosis.field_account_move__institution_partner_id
+#: model:ir.model.fields,help:diagnosis.field_account_payment__institution_partner_id
+msgid "Institution type partner related to this invoice"
+msgstr "Institución relacionada con esta factura"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__insurance_partner_id
+#: model:ir.model.fields,help:diagnosis.field_account_move__insurance_partner_id
+#: model:ir.model.fields,help:diagnosis.field_account_payment__insurance_partner_id
+msgid "Insurace type partner related to this invoice"
+msgstr "Aseguradora relacionada con esta factura"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__insurance_account_id
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__insurance_account_id
+msgid "Insurance Account"
+msgstr "Cuenta de coaseguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_product_category__insurance_account_receivable_id
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__insurance_account_receivable_id
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__insurance_account_receivable_id
+msgid "Insurance Account Receivable"
+msgstr "CXC aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__insurance_related_move_ids
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__insurance_related_move_ids
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__insurance_related_move_ids
+msgid "Insurance Related Move"
+msgstr "Relación factura  aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__affiliate_number
+#: model:ir.model.fields,help:diagnosis.field_account_move__affiliate_number
+#: model:ir.model.fields,help:diagnosis.field_account_payment__affiliate_number
+#: model:ir.model.fields,help:diagnosis.field_res_partner__affiliate_number
+#: model:ir.model.fields,help:diagnosis.field_res_users__affiliate_number
+msgid "Insurance affiliation number"
+msgstr "Número de afiliado"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__insurance_authorization
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__insurance_authorization
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__insurance_authorization
+msgid "Insurance authorization"
+msgstr "Autorización del seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__insurance_partner_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__insurance_partner_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__insurance_partner_id
+#: model:ir.model.fields.selection,name:diagnosis.selection__res_partner__partner_type__insurence
+msgid "Insurance carrier"
+msgstr "Aseguradora"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model:ir.actions.report,name:diagnosis.report_invoice_insurance_conciliation
+#, python-format
+msgid "Insurance conciliation"
+msgstr "Conciliación aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_move_line__insurance_coverage
+msgid "Insurance coverage"
+msgstr "Cobertura Seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__insurance_policy
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__insurance_policy
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__insurance_policy
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__insurance_policy
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__insurance_policy
+msgid "Insurance policy"
+msgstr "Póliza"
+
+#. module: diagnosis
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+msgid "Insurance relationship"
+msgstr "Relación aseguradora"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#, python-format
+msgid "Invoice Insurance"
+msgstr "Factura aseguradora"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte contable"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_move____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_account_move_line____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_product_category____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_product_product____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_product_template____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_res_company____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__write_uid
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización de"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__write_date
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__write_date
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: diagnosis
+#: model:ir.model.fields.selection,name:diagnosis.selection__product_template__article_type__macro
+msgid "Macro"
+msgstr ""
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__move_insurance_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__move_insurance_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__move_insurance_id
+msgid "Move Insurance"
+msgstr "Factura aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__move_reconcile_line
+msgid "Move Reconcile Line"
+msgstr ""
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_insurance_close_reason__name
+msgid "Name"
+msgstr "Numero"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "No."
+msgstr ""
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "No. Afilliate"
+msgstr "No. Afiliado"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "No. Authorization"
+msgstr "No. Autorización"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__affiliate_number
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__affiliate_number
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__affiliate_number
+msgid "No. affiliate"
+msgstr "No. Afiliado"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Nombre"
+msgstr ""
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#, python-format
+msgid "Only can create invoice for same the insurance partner"
+msgstr "Solo puede crear facturas para la misma aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields.selection,name:diagnosis.selection__res_partner__partner_type__pacient
+msgid "Pacient"
+msgstr "Paciente"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_res_partner__partner_type
+#: model:ir.model.fields,field_description:diagnosis.field_res_users__partner_type
+msgid "Partner Type"
+msgstr "Tipo de Contacto"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__partner_name
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__partner_name
+msgid "Partner name"
+msgstr "Nombre del cliente"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__partner_vat
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__partner_vat
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__partner_vat
+msgid "Partner vat"
+msgstr ""
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__insurance_policy
+#: model:ir.model.fields,help:diagnosis.field_account_move__insurance_policy
+#: model:ir.model.fields,help:diagnosis.field_account_payment__insurance_policy
+msgid "Partner's insurance affiliation number"
+msgstr "Número de afiliación al seguro del cliente"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_account_payment
+msgid "Payments"
+msgstr "Pagos"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__pending_balance_amount
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__pending_balance_amount
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__pending_balance_amount
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Pending balance"
+msgstr "Balance pendiente"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#, python-format
+msgid "Please define an accounting sales journal for the company %s (%s)."
+msgstr ""
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model:ir.model,name:diagnosis.model_product_product
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Product"
+msgstr "Producto"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__product_categ_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__product_categ_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__product_categ_id
+msgid "Product Categ"
+msgstr "Categoría del producto"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: diagnosis
+#: model:ir.model,name:diagnosis.model_product_template
+msgid "Product Template"
+msgstr "Plantilla producto"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_res_company__product_invoice_insurance_id
+#: model:ir.model.fields,field_description:diagnosis.field_res_config_settings__product_invoice_insurance_id
+msgid "Product insurance"
+msgstr "Producto aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__product_name
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__product_name
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__product_name
+msgid "Product name"
+msgstr ""
+
+#. module: diagnosis
+#: model_terms:ir.ui.view,arch_db:diagnosis.res_config_settings_view_form
+msgid "Product usage for invoice Insurance"
+msgstr "Producto usado para facturas de aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__referrer_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__referrer_id
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__referrer_id
+#: model:ir.model.fields,field_description:diagnosis.field_diagnosis_referrer__name
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_referrer_view_tree
+msgid "Referrer"
+msgstr "Referidor"
+
+#. module: diagnosis
+#: model:ir.actions.act_window,name:diagnosis.diagnosis_referrer_action_tree
+#: model:ir.ui.menu,name:diagnosis.diagnosis_referrer_menu
+msgid "Referrers"
+msgstr "Referidores"
+
+#. module: diagnosis
+#: model:ir.actions.server,name:diagnosis.action_confirm_pand_reconciled_ayments
+msgid "Register Payments and Reconciled"
+msgstr "Registrar pagos y Reconciliar"
+
+#. module: diagnosis
+#: model:ir.actions.report,name:diagnosis.report_invoice_insurance
+msgid "Relationship insurance"
+msgstr "Relación aseguradora"
+
+#. module: diagnosis
+#: model:ir.model.fields.selection,name:diagnosis.selection__product_template__article_type__simple
+msgid "Simple"
+msgstr ""
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_account_move__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_account_move_line__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_account_payment__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_diagnosis_referrer__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_product_category__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_product_product__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_product_template__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_res_partner__db_external_id
+#: model:ir.model.fields,help:diagnosis.field_res_users__db_external_id
+msgid "Technical field. Save external ID other Databases"
+msgstr "Campo tecnico. Guarda el ID de la base de datos externa"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__db_external_state
+#: model:ir.model.fields,help:diagnosis.field_account_move__db_external_state
+#: model:ir.model.fields,help:diagnosis.field_account_payment__db_external_state
+msgid "Technical field. Save external state"
+msgstr ""
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__partner_vat
+#: model:ir.model.fields,help:diagnosis.field_account_move__partner_vat
+#: model:ir.model.fields,help:diagnosis.field_account_payment__partner_vat
+msgid ""
+"The Tax Identification Number. Complete it if the contact is subjected to "
+"government taxes. Used in some legal statements."
+msgstr ""
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#, python-format
+msgid ""
+"The product for the insurance invoice could not be found please go to the "
+"accounting settingsn."
+msgstr ""
+"No se pudo encontrar el producto para la factura del seguro, vaya a la "
+"configuración de contabilidad"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__institution_coverage_amount
+#: model:ir.model.fields,help:diagnosis.field_account_move__institution_coverage_amount
+#: model:ir.model.fields,help:diagnosis.field_account_payment__institution_coverage_amount
+msgid "Total amount covered by the institution"
+msgstr "Importe cubierto por la institución"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__insurance_coverage_amount
+#: model:ir.model.fields,help:diagnosis.field_account_move__insurance_coverage_amount
+#: model:ir.model.fields,help:diagnosis.field_account_payment__insurance_coverage_amount
+msgid "Total amount covered by the insurance"
+msgstr "Importe cubierto por el seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_account_bank_statement_line__insurance_amount_paid
+#: model:ir.model.fields,help:diagnosis.field_account_move__insurance_amount_paid
+#: model:ir.model.fields,help:diagnosis.field_account_payment__insurance_amount_paid
+msgid "Total amount paid insurance"
+msgstr "Monto pagado seguro"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Total authorization"
+msgstr "Total autorizado"
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__institution_coverage_amount
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__institution_coverage_amount
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__institution_coverage_amount
+msgid "Total institution coverage"
+msgstr "Total de Cobertura de la institución "
+
+#. module: diagnosis
+#: model:ir.model.fields,field_description:diagnosis.field_account_bank_statement_line__insurance_coverage_amount
+#: model:ir.model.fields,field_description:diagnosis.field_account_move__insurance_coverage_amount
+#: model:ir.model.fields,field_description:diagnosis.field_account_payment__insurance_coverage_amount
+msgid "Total insurance coverage"
+msgstr "Total de Cobertura del Seguro"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print
+#: model_terms:ir.ui.view,arch_db:diagnosis.invoice_insurance_print_concilation
+#, python-format
+msgid "Total paid"
+msgstr "Total pagado"
+
+#. module: diagnosis
+#: model_terms:ir.ui.view,arch_db:diagnosis.diagnosis_view_move_form_inherit
+msgid "XLS Insurance conciliation"
+msgstr "Conciliación aseguradora XLS"
+
+#. module: diagnosis
+#: code:addons/diagnosis/models/account_move.py:0
+#, python-format
+msgid ""
+"You can not next because you do not set a amount in field Amount paid "
+"insurance"
+msgstr ""
+"No puede continuar porque usted no a agregado un monto para el campo Monto "
+"pagado seguro"
+
+#. module: diagnosis
+#: model:ir.model.fields,help:diagnosis.field_res_partner__insurance_policy
+#: model:ir.model.fields,help:diagnosis.field_res_users__insurance_policy
+msgid "partner insurance policy"
+msgstr "Póliza relacionado al contacto"

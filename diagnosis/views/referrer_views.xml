@@ -1,0 +1,38 @@
+<odoo>
+
+    <record id="diagnosis_referrer_view_tree" model="ir.ui.view">
+        <field name="name">diagnosis.referrer.view.tree</field>
+        <field name="model">diagnosis.referrer</field>
+        <field name="arch" type="xml">
+            <tree string="Referrer" editable="top">
+                <field name="name" />                
+            </tree>
+        </field>
+    </record>
+
+    <record id="diagnosis_referrer_view_search" model="ir.ui.view">
+        <field name="name">diagnosis.referrer.view.search</field>
+        <field name="model">diagnosis.referrer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+            </search>
+        </field>
+    </record>
+
+    <record id="diagnosis_referrer_action_tree" model="ir.actions.act_window">
+        <field name="name">Referrers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">diagnosis.referrer</field>
+        <field name="search_view_id" ref="diagnosis_referrer_view_search"/>
+        <field name="view_id" ref="diagnosis_referrer_view_tree"/>
+    </record>
+
+    <menuitem
+        id="diagnosis_referrer_menu"
+        name="Referrers"
+        action="diagnosis_referrer_action_tree"
+        parent="account.account_invoicing_menu"
+        sequence="19"/>
+
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_diagnosis_referrer_group_user,diagnosis_referrer group_user,model_diagnosis_referrer,base.group_user,1,1,1,0
+access_diagnosis_referrer_group_account_manager,diagnosis_referrer group_account_manager,model_diagnosis_referrer,account.group_account_manager,1,1,1,1
+access_insurance_close_reason_user,access_insurance_close_reason_user,model_insurance_close_reason,base.group_user,1,1,1,0
+access_insurance_close_reason_manager,access_insurance_close_reason_manager,model_insurance_close_reason,account.group_account_manager,1,1,1,1

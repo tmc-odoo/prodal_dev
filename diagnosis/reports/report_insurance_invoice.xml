@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+       <record id="report_invoice_insurance" model="ir.actions.report">
+            <field name="name">Relationship insurance</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">diagnosis.report_invoice_insurance_template</field>
+            <field name="report_file">diagnosis.report_invoice_insurance_template</field>
+            <field name="print_report_name">'Insurance relationship'</field>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" ref="model_account_move"/>
+            <field name="paperformat_id" ref="diagnosis.paperformat_report_invoice_insurance_template"/>
+        </record>
+
+       <record id="report_invoice_insurance_conciliation" model="ir.actions.report">
+            <field name="name">Insurance conciliation</field>
+            <field name="model">account.move</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">diagnosis.report_invoice_insurance_conciliation_template</field>
+            <field name="report_file">diagnosis.report_invoice_insurance_conciliation_template</field>
+            <field name="print_report_name">'Insurance conciliation'</field>
+            <field name="binding_type">report</field>
+            <field name="binding_model_id" ref="model_account_move"/>
+            <field name="paperformat_id" ref="diagnosis.paperformat_report_invoice_insurance_template"/>
+        </record>
+
+    <template id="invoice_insurance_print">
+          <div class="mb8">
+            <div class="page">
+                 <h2 class="text-center">
+                    <span t-field="o.l10n_do_ncf"/>
+                </h2>
+                <div class="row">
+                  <table class="table table-condensed">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Code PSS</th>
+                            <th>Product</th>
+                            <th>Nombre</th>
+                            <th>Attention date</th>
+                            <th>No. Afilliate</th>
+                            <th>No. Authorization</th>
+                            <th>Total authorization</th>
+                            <th>Total paid</th>
+                            <th>Pending balance</th>
+                          </tr>
+                        </thead>
+                        <tbody t-foreach="tdatas" t-as="line">
+                            <tr>
+                                <td><t t-esc="line.get('name')"/></td>
+                                <td><t t-esc="line.get('code_pss')"/></td>
+                                <td><t t-esc="line.get('product_name')"/></td>
+                                <td><t t-esc="line.get('partner_name')"/></td>
+                                <td><t t-esc="o.format_date(line.get('invoice_date'))"/></td>
+                                <td><t t-esc="line.get('affiliate_number')"/></td>
+                                <td><t t-esc="line.get('insurance_authorization')"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('insurance_coverage_amount') or 0.0)"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('insurance_amount_paid') or 0.0)"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('pending_balance_amount'))"/></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><t t-esc='o.calculate_total(tdatas, "insurance_coverage_amount")'/></td>
+                            <td><t t-esc='o.calculate_total(tdatas, "insurance_amount_paid")'/></td>
+                            <td><t t-esc='o.calculate_total(tdatas, "pending_balance_amount")'/></td>
+                        </tfoot>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="invoice_insurance_print_concilation">
+          <div class="mb8">
+            <div class="page">
+                 <h2 class="text-center">
+                    <span t-field="o.l10n_do_ncf"/>
+                </h2>
+                <div class="row">
+                  <table class="table table-condensed">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Code PSS</th>
+                            <th>Product</th>
+                            <th>Nombre</th>
+                            <th>Cedula</th>
+                            <th>Attention date</th>
+                            <th>No. Afilliate</th>
+                            <th>No. Authorization</th>
+                            <th>Total authorization</th>
+                            <th>Total paid</th>
+                            <th>Affiliate difference</th>
+                            <th>Amount</th>
+                            <th>Pending balance</th>
+                          </tr>
+                        </thead>
+                        <tbody t-foreach="tdatas" t-as="line">
+                            <tr>
+                                <td><t t-esc="line.get('name')"/></td>
+                                <td><t t-esc="line.get('code_pss')"/></td>
+                                <td><t t-esc="line.get('product_name')"/></td>
+                                <td><t t-esc="line.get('partner_name')"/></td>
+                                <td><t t-esc="line.get('partner_vat')"/></td>
+                                <td><t t-esc="o.format_date(line.get('invoice_date'))"/></td>
+                                <td><t t-esc="line.get('affiliate_number')"/></td>
+                                <td><t t-esc="line.get('insurance_authorization')"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('insurance_coverage_amount') or 0.0)"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('insurance_amount_paid') or 0.0)"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('affiliate_difference') or 0.0)"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('amount_service') or 0.0)"/></td>
+                                <td><t t-esc="o.format_monetary(line.get('pending_balance_amount') or 0.0)"/></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><t t-esc='o.calculate_total(tdatas, "insurance_coverage_amount")'/></td>
+                            <td><t t-esc='o.calculate_total(tdatas, "insurance_amount_paid")'/></td>
+                            <td></td>
+                            <td></td>
+                            <td><t t-esc='o.calculate_total(tdatas, "pending_balance_amount")'/></td>
+                        </tfoot>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </template>
+    
+    <template id="report_invoice_insurance_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                      <t t-set="o" t-value="o.with_context(lang=lang)" />
+                    <t t-set="tdatas" t-value="o.get_insurance_invoice_relationship()" />
+                    <t t-call='diagnosis.invoice_insurance_print'/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_invoice_insurance_conciliation_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="o" t-value="o.with_context(lang=lang)" />
+                    <t t-set="tdatas" t-value="o.get_insurance_invoice_concilation()" />
+                    <t t-call='diagnosis.invoice_insurance_print_concilation'/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

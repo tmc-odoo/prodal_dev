@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo noupdate="0">
+        <record id="base_external_tds" model="base.external.dbsource">
+            <field name="name">TDS</field>
+            <field name="connector">pytds</field>
+            <field name="server">181.37.126.33</field>
+            <field name="dbname">imagenes</field>
+            <field name="port" eval="45101"/>
+            <field name="user">atrivia</field>
+            <field name="password">Atriv1a4567</field>
+        </record>
+</odoo>

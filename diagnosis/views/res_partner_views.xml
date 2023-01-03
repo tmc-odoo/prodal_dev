@@ -1,0 +1,31 @@
+<odoo>
+
+    <record id="diagnosis_view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">diagnosis.res.partner.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="type" position="before">
+                <field name="partner_type" widget="radio" required="1"/>
+                <field name="affiliate_number" />
+                <field name="code_pss" />
+            </field>
+            <field name="function" position="before">
+                <field name="insurance_policy" />
+            </field>
+        </field>
+    </record>
+
+    <record id="diagnosis_view_partner_property_form" model="ir.ui.view">
+        <field name="name">diagnosis.res.partner.account.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_account_receivable_id" position="before">
+                <field name="insurance_account_id" />
+                <field name="insurance_account_receivable_id" />
+            </field>
+        </field>
+    </record>
+
+</odoo>

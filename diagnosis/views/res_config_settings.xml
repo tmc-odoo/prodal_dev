@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.diagnosis.airport</field>
+            <field name = "model">res.config.settings</field>
+            <field name ="inherit_id" ref="account.res_config_settings_view_form"/>
+            <field name ="arch" type="xml">
+                <xpath expr="//div[@id='invoicing_settings']/div[@id='default_incoterm']" position="after">
+                        <div class="col-12 col-lg-6 o_setting_box" id="product_invoice_insurance">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Product Insurance</span>
+                                <div class="text-muted">
+                                    Product usage for invoice Insurance
+                                </div>
+                                <div class="text-muted">
+                                    <field name="product_invoice_insurance_id"/>
+                                </div>
+                            </div>
+                        </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

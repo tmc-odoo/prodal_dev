@@ -1,0 +1,24 @@
+<odoo>
+    <record id="l10n_do_check_printing_check_report" model="ir.ui.view">
+        <field name="name">l10n_do_check_printing.check.report</field>
+        <field name="model">check.report.config</field>
+        <field name="inherit_id" ref="l10n_do_check_printing.l10n_do_check_printing_check_report_config_form"></field>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form//sheet//field[@name='check_footer_amount_left']" position="after">
+                <field name="check_date_top"/>
+                <field name="check_date_left"/>
+            </xpath>
+
+            <xpath expr="//form//sheet//group[3]" position="after">
+                <group string="Asiento Contable">
+                    <field name="show_description"/>
+                    <field name="description_top"/>
+                    <field name="description_left"/>
+                </group>
+            </xpath>            
+        </field>
+    </record>
+</odoo>
+
+

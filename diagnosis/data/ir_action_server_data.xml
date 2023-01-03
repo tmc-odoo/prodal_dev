@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_confirm_pand_reconciled_ayments" model="ir.actions.server">
+        <field name="name">Register Payments and Reconciled</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="model_id" ref="account.model_account_payment"/>
+        <field name="binding_model_id" ref="account.model_account_payment"/>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+records.mapped("move_reconcile_line").filtered(lambda x: x.invoice_line_ids and x.state == 'draft')._post(soft=False)
+for rec in records:
+    rec.filtered(lambda x: x.state == 'draft').action_post()
+    if not rec.move_reconcile_line or rec.move_reconcile_line.payment_state == 'paid':
+        continue
+    line = rec.line_ids.filtered(lambda line: line.account_internal_type in ('receivable', 'payable') and not line.reconciled)
+    if not line:
+        continue
+    rec.move_reconcile_line.js_assign_outstanding_line(line.ids)
+        </field>
+    </record>
+
+    <record id="action_invoice_insurance_convert" model="ir.actions.server">
+        <field name="name">Convert to insurance invoice</field>
+        <field name="type">ir.actions.server</field>
+        <field name="state">code</field>
+        <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list</field>
+        <field name="code">
+action = records.action_convert_invoice_insurance()
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="diagnosis_search_template_tax_report" inherit_id="account_reports.search_template_extra_options">
+        <xpath expr="//button[1]" position="inside">
+            <t t-if="options.get('payment_date', False)">- Filter By Payment Date</t>
+        </xpath>
+        <xpath expr="//div[@role='menu']/a[@data-filter='unfold_all']" position="after">
+            <a t-if="'payment_date' in options" role="menuitem" class="dropdown-item js_account_report_bool_filter"  title="Payment Date" data-filter="payment_date">Filter By Payment Date</a>
+        </xpath>
+    </template>
+</odoo>
