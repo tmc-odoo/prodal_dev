@@ -1,0 +1,20 @@
+<odoo>
+    <!-- <record id="bank_contact_view_form" model="ir.ui.view">
+        <field name="name">bank_contact_view_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.res_partner_view_form_private"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group/field[@name='default_code']" position="after">
+                <field name="external_name"/>
+                <field name="required_cost_confirmation"/>
+            </xpath>
+        </field>
+    </record>
+
+    <template id="report_saleorder_rierba_document" inherit_id="sale.report_saleorder_document" name="Rierba Sale Order">
+        <xpath expr="//span[@t-field='line.name']" position="replace">
+            <span t-field="line.display_name"/>
+        </xpath>
+    </template> -->
+</odoo>
