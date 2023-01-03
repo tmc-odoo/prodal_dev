@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="assets_common" name="assets_common_prodal" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" type="text/scss" href="/rierba/static/src/scss/prodal_reports.scss"/>
+            </xpath>
+        </template>
+
+        <template id="cash_register_report_document">
+            <t t-set="date" t-value="date_from"/>
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 class="text-center"><span>Cash Register Report</span></h2>
+                    <table class="table table-condensed table-pdf-prodal-filters">
+                        <thead>
+                            <tr>
+                                <th t-if="date_from"><strong>From:</strong></th>
+                                <th t-if="date_to"><strong>To:</strong></th>
+                                <th t-if="number_from"><strong>Number From:</strong></th>
+                                <th t-if="number_from"><strong>Number To:</strong></th>
+                                <th t-if="journals_name"><strong>Journal(s):</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td t-if="date_from">
+                                    <span t-esc="date_from"/>
+                                </td>
+                                <td t-if="date_to">
+                                    <span t-esc="date_to"/>
+                                </td>
+                                <td t-if="number_from">
+                                    <span t-esc="number_from"/>
+                                </td>
+                                <td t-if="number_to">
+                                    <span t-esc="number_to"/>
+                                </td>
+                                <td t-if="journals_name">
+                                    <span t-esc="journals_name"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="col-xs-12">
+                        <t t-set="tot1-30" t-value="0"/>
+                        <t t-set="tot31-60" t-value="0"/>
+                        <t t-set="totplus60" t-value="0"/>
+                        <t t-set="totbalance" t-value="0"/>
+                        <t t-set="acumbalance" t-value="0.00"/>
+                        <t t-set="n" t-value="1"/>
+
+                        <table class="table table-condensed table-bordered table-pdf-prodal-data-perc">
+                            <thead>
+                                <th class="text-center th-10-per">Rec. No.</th>
+                                <th class="text-center th-20-per">Customer</th>
+                                <th class="text-center th-5-per">Value</th>
+                                <th class="text-center th-12-per">Applied to</th>
+                                <th class="text-center th-7-per">TF</th>
+                                <th class="text-center th-12-per">FT</th>
+                                <th class="text-center th-13-per">Due Date</th>
+                                <th class="text-center th-13-per">Sales Rep.</th>
+                                <th class="text-center th-7-per">FP</th>
+                            </thead>
+                            <tbody class="moves_tbody">
+                                <t t-foreach="records" t-as="doc">
+                                    <tr>
+                                        <td class="text-center">
+                                            <span t-esc="doc['number']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="doc['name']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="doc['amount']" t-options='{"widget": "monetary", "display_currency": doc["currency"]}'/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="doc['applied']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="doc['terms'][:7]"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="p-0 m-0" t-esc="datetime.datetime.strftime(doc['date'], '%d/%m/%Y')"/>
+                                        <td class="text-center">
+                                            <t t-foreach="doc['fecven']" t-as="date_due">
+                                                <span class="p-0 m-0" t-esc="date_due"/>
+                                            </t>
+                                        </td>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="doc['salesrep']"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <span t-esc="doc['method'][:3]"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                                <tr class="border-black">
+                                    <td class="text-center"><span class="font-weight-bold mx-n1">Total de ingresos</span></td>
+                                    <td></td>
+                                    <td class="text-center">
+                                        <span class="font-weight-bold mx-n2" t-esc="total" />
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="clearfix">
+                            <div class="row" name="total">
+                                <div class="col-4 pull-right">
+                                    <table class="table table-condensed table-pdf-prodal-summary-box">
+                                        <tr class="border-black">
+                                            <td><strong>Register Number</strong></td>
+                                            <td class="text-right">
+                                                <span t-esc="len_docs"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-12 div-no-break">
+                                <h5 class="text-center">
+                                    <span>Check Breakdown</span>
+                                </h5>
+                                <table  class="table table-condensed table-bordered table-pdf-prodal-summary-box">
+                                    <thead>
+                                        <th class="text-center">Bank</th>
+                                        <th class="text-center">Cks. No.</th>
+                                        <th class="text-center">Paid for</th>
+                                        <th class="text-center">Amount</th>
+                                        <th class="text-center">Notes</th>
+                                    </thead>
+                                    <tbody class="moves_tbody">
+                                        <t t-foreach="summchks" t-as="chk">
+                                            <tr>
+                                                <td class="text-center">
+                                                    <span t-esc="chk['bank']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="chk['number']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="chk['payer']"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="chk['amount']" t-options='{"widget": "monetary", "display_currency": chk["currency"]}'/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="chk['notes']"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr class="border-black">
+                                            <td class="text-center"><strong>Total</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <strong><span t-esc="totbymethod['check']"/></strong>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+                            <br/>
+                            <br/>
+                            <!-- <div class="col-12 div-no-break">
+                                <h5 style="page-break-after:avoid;" class="text-center">
+                                    <span>Deposit Breakdown</span>
+                                </h5>
+                                <table class="table table-condensed table-bordered table-pdf-prodal-summary-box">
+                                    <thead>
+                                        <th class="text-center">Journal</th>
+                                        <th class="text-center">Currency</th>
+                                        <th class="text-center">Description</th>
+                                        <th class="text-center">Amount</th>
+                                    </thead>
+                                    <tbody class="moves_tbody">
+                                        <t t-foreach="dep_payments" t-as="pay">
+                                            <tr>
+                                                <td class="text-center">
+                                                    <span t-esc="pay['journal'].display_name"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="pay['currency'].display_name"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="pay['description']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="pay['amount']" t-options="{'widget': 'monetary', 'display_currency': pay['currency']}"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr class="border-black">
+                                            <td class="text-center"><strong>Total</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <strong><span t-esc="totbymethod['pay_deposit']" /></strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+
+                        <div class="row div-no-break" name="cardntotal">
+                            <div class="col-6 pull-left">
+                                <h5 class="text-center">
+                                    <span>Card Breakdown</span>
+                                </h5>
+                                <table class="table table-condensed table-bordered table-pdf-prodal-summary-box">
+                                    <thead>
+                                        <th class="text-center">NotAPRVD</th>
+                                        <th class="text-center">TjType</th>
+                                        <th class="text-center">TjHolder</th>
+                                        <th class="text-center">Amount</th>
+                                        <th class="text-center">Notes</th>
+                                    </thead>
+                                    <tbody class="moves_tbody">
+                                        <t t-foreach="summcard" t-as="card">
+                                            <tr>
+                                                <td class="text-center">
+                                                    <span t-esc="card['refnum']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="card['cash_type']"/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="card['tjhabiente']"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="card['amount']" t-options='{"widget": "monetary", "display_currency": card["currency"]}'/>
+                                                </td>
+                                                <td class="text-center">
+                                                    <span t-esc="card['notes']"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr class="border-black">
+                                            <td class="text-center"><strong>Total</strong></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <strong><span t-esc="totbymethod['card']" /></strong>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-1"/>
+                            <div class="col-5 pull-right">
+                                <h5 class="text-center">
+                                    <span>Summary</span>
+                                </h5>
+                                <table class="table table-condensed table-bordered table-pdf-prodal-summary-box">
+                                    <thead>
+                                        <th class="text-center">Paymen Method</th>
+                                        <th class="text-center">Amount</th>
+                                    </thead>
+                                    <tbody class="moves_tbody">
+                                        <!-- <tr>
+                                            <td class="text-center">
+                                                <span>Payment Deposit</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['pay_deposit']" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>CHECK</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['check']" />
+                                            </td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>CASH</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['cash']" />
+                                            </td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td class="text-center">
+                                                <span>CARD</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['card']" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Total USD</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['total_us']" t-options='{"widget": "monetary", "display_currency": us_curr}'/>
+                                            </td>
+                                        </tr> -->
+                                        <!-- <tr class="border-black">
+                                            <td class="text-center"><strong>Total Income</strong></td>
+                                            <td class="text-right">
+                                                <strong><span t-esc="totbymethod['total']" /></strong>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <div class="row no-break-inside">
+                            <div class="col-6">
+                                <h5 class="text-center">Auxiliary Summary</h5>
+                                <table class="table table-condensed table-bordered table-pdf-prodal-summary-box">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Paymen Method</th>
+                                            <th class="text-center">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>MANUAL DEPOSIT</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['deposit_confirmed']" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Manual Draft Deposit</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['deposit_draft']" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Manual And Payment Deposit Difference</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['deposit_confirmed'] - totbymethod['pay_deposit']" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Total US</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="totbymethod['total_us']" t-options='{"widget": "monetary", "display_currency": us_curr}'/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> -->
+
+                        <div class="row div-no-break" name="denominations">
+                            <div class="col-6 pull-right div-no-break">
+                                <!--t t-set="totdenom" t-value="0"/-->
+                                <h5 class="text-center">
+                                    <span>Denominations Summary</span>
+                                </h5>
+                                <table class="table table-condensed table-bordered table-pdf-prodal-summary-box">
+                                    <thead>
+                                        <th class="text-center">Denom.</th>
+                                        <th class="text-center">Qty.</th>
+                                        <th class="text-center">Total</th>
+                                    </thead>
+                                    <tbody class="moves_tbody">
+                                        <!--t t-foreach="denom" t-as="den">
+                                            <t t-set="totdenom" t-value="totdenom + den['total']"/>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <span t-esc="den['code']"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="den['qty']"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="den['total']"/>
+                                                </td>
+                                            </tr>
+                                        </t-->
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>One</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="one"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(one)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Five</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="five"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(five * 5)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Ten</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="ten"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(ten * 10)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Twenty</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="twenty"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(twenty * 20)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Twenty Five</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="twentyfive"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(twentyfive * 25)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Fifty</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="fifty"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(fifty * 50)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>One Hundred</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="onehundred"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(onehundred * 100)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Two Hundred</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="twohundred"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(twohundred * 200)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Five Hundred</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="fivehundred"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(fivehundred * 500)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Thousand</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="thousand"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(thousand * 1000)"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <span>Two Thousand</span>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="twothousand"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="'{0:,.2f}'.format(twothousand * 2000)"/>
+                                            </td>
+                                        </tr>
+                                        <tr class="border-black">
+                                            <td class="text-center"><strong>Total</strong></td>
+                                            <td></td>
+                                            <td class="text-right">
+                                                <strong><span t-esc="totdenom"/></strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <div class="row mt-32 div-prodal-date-box">
+                        <div class="col-4"><span>Done By:___________________________</span></div>
+                        <div class="col-4"><span>Recieved By:__________________________</span></div>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="cash_register_report">
+            <t t-call="web.html_container">
+                <t t-set="data_report_margin_top" t-value="48"/>
+                <t t-set="data_report_header_spacing" t-value="46"/>
+                <t t-set="reportes" t-value="docs"/>
+                <t t-call="rierba.cash_register_report_document"/>
+            </t>
+        </template>
+    </data>
+</odoo>

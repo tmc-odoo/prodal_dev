@@ -1,0 +1,197 @@
+.table-pdf-prodal-filters {
+    > thead > tr > th {
+        font-size:13px;
+    }
+    > tbody > tr {
+        font-size:13px;
+    }
+}
+
+.table-pdf-prodal-data {
+    page-break-inside:auto;
+    > thead > tr > th {
+        font-size:12px;
+    }
+    > tbody > tr {
+        font-size:12px;
+        margin-top: 10px;
+        border-top: 1px solid black;
+        page-break-inside:avoid;
+        page-break-after:auto;
+    }
+}
+
+.table-pdf-prodal {
+    > thead > tr > th {
+        font-size:12px;
+    }
+    > tbody > tr {
+        font-size:12px;
+        margin-top: 5px;
+    }
+}
+
+.table-pdf-prodal-data-perc {
+    font-size:12px;
+}
+.td-38-in {
+    width: 3.8in;
+    margin-top: 10px;
+}
+
+.th-5-per {
+    width: 8%;
+}
+.th-7-per {
+    width: 7%;
+}
+
+.th-10-per {
+    width: 10%;
+}
+.th-13-per {
+    width: 13%;
+}
+.th-12-per {
+    width: 12%;
+}
+.th-15-per {
+    width: 15%;
+}
+
+.th-20-per {
+    width: 18%;
+}
+
+.div-prodal-signature-box {
+    font-size:16px;
+    max-width: 700;
+    margin: auto;
+    padding:0px;
+}
+
+.div-prodal-sign-underscore {
+    color: #ffffff;
+    font-size:12px;
+}
+
+.div-prodal-date-box {
+    font-size:12px;
+    padding:0px;
+}
+
+.table-pdf-prodal-summary-box {
+    min-width: 200px;
+    max-width: 280px;
+    font-size:13px;
+    page-break-inside: avoid;
+}
+
+.table-pdf-prodal-summary-box-invoice {
+    min-width: 200px;
+    max-width: 350px;
+    font-size:15px;
+    page-break-inside: avoid;
+}
+
+.table-pdf-prodal-auto-size {
+    white-space: nowrap;
+    width: 1%;
+}
+
+.div-no-break {
+    page-break-inside: avoid;
+    page-break-before: always;
+}
+
+.no-break-inside {
+    page-break-inside: avoid;
+}
+
+.img-prodal-invoice {
+    max-height: 70px;
+}
+
+.div-prodal-invoice-over-header {
+    margin-top:0px;
+}
+
+.div-prodal-pdf-frame-header {
+    border-bottom: 1px solid black;
+}
+
+.div-prodal-pdf-frame-footer {
+    border-top: 1px solid black;
+}
+
+.div-prodal-pdf-pagenum-footer {
+    font-size:11px;
+    padding:0px
+}
+
+.ul-prodal-pdf-font-16 {
+    font-size:16px;
+}
+
+.ul-prodal-pdf-margin-left30 {
+    margin-left: 30;
+}
+
+.prodal-pdf-font12 {
+    font-size:12px;
+}
+
+.prodal-pdf-font15 {
+    font-size:15px;
+}
+
+.div-prodal-pdf-font16 {
+    font-size:16px;
+}
+
+.div-prodal-pdf-font19 {
+    font-size:19px;
+}
+
+.p-prodal-pdf-font17 {
+    font-size:17px;
+}
+
+.tr-prodal-pdf-discount {
+    border-bottom:1px solid #dddddd;
+}
+
+.span-prodal-pdf-narration {
+    font-size:16px;
+}
+
+.mt-med {
+    margin-top: 80px;
+}
+
+.no-break-inside{
+    page-break-inside:avoid;
+}
+.page-break-after{
+    page-break-after:always;
+}
+
+.text-align-right{
+    text-align: right;
+}
+
+.table-condensed-slim thead tr th {
+    padding: 2px 5px;
+}
+
+.table-condensed-slim tbody tr td {
+    padding: 2px 5px;
+}
+
+.space-text {
+    white-space: pre;
+}
+
+.underline{
+    text-decoration: underline;
+}

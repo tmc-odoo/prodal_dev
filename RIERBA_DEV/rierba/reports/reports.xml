@@ -1,0 +1,11 @@
+
+<odoo>
+    <report
+    id="action_cash_register_report"
+    model="cash.register.report.wizard"
+    string="Reporte de cuadre de caja"
+    report_type="qweb-pdf"
+    name="rierba.cash_register_report"
+    file="rierba.cash_register_report"
+    />
+</odoo>

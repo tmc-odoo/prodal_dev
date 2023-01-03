@@ -1,0 +1,54 @@
+<odoo>
+    <record id="rierba_repair_order_view_form" model="ir.ui.view">
+        <field name="name">rierba.repair.order.view.form</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="//field[@name='state']" position="replace">
+                <field name="state" widget="statusbar" statusbar_visible="reception,draft,confirmed,done"/>
+            </xpath>
+            <xpath expr="//div[@class='oe_button_box']" position="inside">
+                <field name="field_service_count" invisible="1"/>
+                <field name="repair_count" invisible="1"/>
+
+                <button name="action_view_task" type="object" attrs="{'invisible':[('field_service_count', '=', 0)]}" class="oe_stat_button" icon="fa-tasks">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Field </span>
+                        <span class="o_stat_text">Services</span>
+                    </div>
+                </button>
+                <button name="action_view_related_repair" type="object"  attrs="{'invisible':[('repair_count', '=', 0)]}" class="oe_stat_button" icon="fa-wrench">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Prev</span>
+                        <span class="o_stat_text">Repairs</span>
+                    </div>
+                </button>
+            </xpath>
+            <field name="lot_id" position="replace">
+                <field name="lot_id" options="{'no_create':true}" context="{'default_product_id': product_id, 'default_company_id': company_id}" groups="stock.group_production_lot" attrs="{'required':['&amp;', ('tracking', 'in', ['serial', 'lot']), ('external_product', '=', False)], 'invisible': ['|', ('tracking', 'not in', ['serial', 'lot']), ('external_product', '=', True)], 'readonly': [('state', '=', 'done')]}"/>
+            </field>
+            <xpath expr="//field[@name='product_id']" position="replace">
+                 <field name="product_ids" invisible="1"/>
+                <field name="lot_ids" invisible="1"/>
+                <field name="partner_id" attrs="{'required':[(1, '=', 1)]}"/>
+                <field name="external_product"/>
+                <field name="product_id" options="{'no_create':true}" attrs="{'readonly':[('state', 'not in', ('reception', 'draft'))]}"/>
+                <field name="lot" attrs="{'invisible':[('external_product', '=', False)]}"/>
+            </xpath>
+            <xpath expr="//div[@class='o_row']" position="replace">
+                <div class="o_row">
+                    <field name="product_qty"/>
+                    <field name="product_uom"/>
+                </div>
+            </xpath>
+            <field name="partner_id" position="replace"/>
+            <xpath expr="//field[@name='operations']" position="attributes">
+                <attribute name="attrs">{'readonly':[('state', 'not in', ('draft', 'reception'))]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='fees_lines']" position="attributes">
+                <attribute name="attrs">{'readonly':[('state', 'not in', ('draft', 'reception'))]}</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

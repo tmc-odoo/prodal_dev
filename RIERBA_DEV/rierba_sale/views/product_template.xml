@@ -1,0 +1,15 @@
+<odoo>
+  <data>
+    <record id="product_template_rierba_view_form" model="ir.ui.view">
+      <field name="name">product.template.rierba.view.form</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='uom_po_id']" position="after">
+              <field name="sale_uom"/>
+              <field name="sold_by_weight"/>
+          </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

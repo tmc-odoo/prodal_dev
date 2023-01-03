@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rierba_bl_rierba_bl,rierba_bl.rierba_bl,model_rierba_bl_rierba_bl,base.group_user,1,1,1,1
+rierba_bl_addbl,rierba_bl.addbl,model_rierba_bl_addbl,base.group_user,1,1,1,1
+
+access_rierba_bl_rierba_bl,rierba_bl.rierba_bl,model_rierba_bl_rierba_bl,rierba_bl.group_purchase_BL,1,1,1,1
+rierba_bl_addbl,rierba_bl.addbl,model_rierba_bl_addbl,rierba_bl.group_purchase_BL,1,1,1,1

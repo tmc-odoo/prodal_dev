@@ -1,0 +1,527 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rierba_bl
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-14 13:23+0000\n"
+"PO-Revision-Date: 2022-12-14 13:23+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_needaction
+msgid "Action Needed"
+msgstr "Accion necesaria"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Decoración de excepciones de actividad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_state
+msgid "Activity State"
+msgstr "Estado de actividad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Icono de tipo de actividad"
+
+#. module: rierba_bl
+#: model:ir.actions.server,name:rierba_bl.action_add_bl_group
+msgid "Add BL group"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__BL
+msgid "BL"
+msgstr ""
+
+#. module: rierba_bl
+#: code:addons/rierba_bl/models/purchase.py:0
+#: model:ir.actions.act_window,name:rierba_bl.rierba_bl_action
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__group_bl_id
+#: model:ir.ui.menu,name:rierba_bl.menu_rierba_bl
+#: model:res.groups,name:rierba_bl.group_purchase_BL
+#, python-format
+msgid "BL group"
+msgstr "Grupo BL"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__name
+msgid "BL name"
+msgstr "Nombre BL"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_tree
+msgid "Channel"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.actions.server,name:rierba_bl.action_create_bl_group
+msgid "Create BL group"
+msgstr "Crear un grupo BL"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__create_uid
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__create_date
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_purchase_order__date_planned
+msgid ""
+"Delivery date promised by vendor. This date is used to determine expected "
+"arrival of products."
+msgstr ""
+"Fecha de entrega prometida por el proveedor. Esta fecha se utiliza para "
+"determinar la llegada prevista de productos."
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__display_name
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__display_name
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__date_planned
+msgid "ETA"
+msgstr "ETA"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__ETD
+msgid "ETD"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__produ
+msgid "Factory Production"
+msgstr "Fabrica Producción"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_follower_ids
+msgid "Followers"
+msgstr "Seguidoras"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Fuente Icono Impresionante, por ejemplo, Tasks FA"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__france
+msgid "France warehouse"
+msgstr "almacén Francia"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__id
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__id
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__id
+msgid "ID"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Ícono para indicar una actividad de excepción."
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_needaction
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si se revisan, los nuevos mensajes requieren su atención."
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_has_error
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se verifica, algunos mensajes tienen un error de entrega."
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__insurance_Policy
+msgid "Insurance Policy"
+msgstr "Poliza de Seguro"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_is_follower
+msgid "Is Follower"
+msgstr "Es seguidor"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order____last_update
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl____last_update
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__write_uid
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__write_date
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.add_group_bl_view_form
+msgid "Lost Reason"
+msgstr "Razón perdida"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjunto principal"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de entrega de mensajes"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Mi fecha límite de actividad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Próxima fecha límite de actividad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_summary
+msgid "Next Activity Summary"
+msgstr "Siguiente resumen de actividad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de errores"
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leídos"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_addbl__purchase_ids
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__purchase_ids
+msgid "Purchase"
+msgstr "Compra"
+
+#. module: rierba_bl
+#: model:ir.model,name:rierba_bl.model_purchase_order
+msgid "Purchase Order"
+msgstr "Pedido de compra"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "Reference"
+msgstr "Referencia"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario responsable"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__petai
+msgid "Retained by Credit hold"
+msgstr "Retenido por retención de crédito"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__rierba_bl_id
+msgid "Rierba Bl"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega de SMS"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.purchase_order_bl_tree_inherit
+msgid "Setup"
+msgstr "Configuración"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__state
+msgid "Status"
+msgstr "Estado"
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.add_group_bl_view_form
+msgid "Submit"
+msgstr "Enviar"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "Test"
+msgstr ""
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "Total Untaxed amount"
+msgstr "Cantidad total de noxilios"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "Total amount"
+msgstr "Cantidad total"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__transitmiami
+msgid "Transit MIAMI"
+msgstr "Transito MIAMI"
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Contador de mensajes no leídos"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "Untaxed"
+msgstr "Exagerada"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields,help:rierba_bl.field_rierba_bl_rierba_bl__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicación del sitio web"
+
+#. module: rierba_bl
+#: code:addons/rierba_bl/models/purchase.py:0
+#, python-format
+msgid "add BL group"
+msgstr "Agregar a grupo BL"
+
+#. module: rierba_bl
+#: model:ir.actions.act_window,name:rierba_bl.add_group_bl_action
+msgid "add group bl"
+msgstr "Agregar grupo BL"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__shipment__aeri
+msgid "aerial"
+msgstr ""
+
+#. module: rierba_bl
+#: code:addons/rierba_bl/models/purchase.py:0
+#: code:addons/rierba_bl/wizards/group_bl_wizard.py:0
+#, python-format
+msgid "all the orders should have the same BL"
+msgstr "todas las órdenes deben tener el mismo BL"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__bill_lading
+msgid "bill of lading"
+msgstr "guía de carga"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__certificate_origin
+msgid "certificate of origin"
+msgstr "certificado de origen"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__coordinating
+msgid "coordinating Booking"
+msgstr "coordinando Booking"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__customs_invoice
+msgid "customs management invoice"
+msgstr "factura de gestión de aduanas"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__duarte
+msgid "duarte warehouse"
+msgstr "almacen duarte "
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__factory_ready
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__ready
+msgid "factory ready"
+msgstr "listo en fabrica "
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__freight_bill
+msgid "freight bill"
+msgstr "factura de flete"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__customs
+msgid "in Dominican customs"
+msgstr "en aduana dominicana "
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__invoice_expenses
+msgid "invoice of local expenses"
+msgstr "factura de gastos locales"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "lineas"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__shipment__mari
+msgid "maritime"
+msgstr "marítimo"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__packing_list
+msgid "packing list"
+msgstr "lista de empaque"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__phytosanitary_certificate
+msgid "phytosanitary certificate"
+msgstr "certificado fitosanitario"
+
+#. module: rierba_bl
+#: model:ir.model,name:rierba_bl.model_rierba_bl_addbl
+msgid "rierba_bl.addbl"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model,name:rierba_bl.model_rierba_bl_rierba_bl
+msgid "rierba_bl.rierba_bl"
+msgstr ""
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__account
+msgid "sent to accounting"
+msgstr "enviado a contabilidad"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_purchase_order__shipment
+msgid "shipment"
+msgstr "embarque"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__supplier_form
+msgid "supplier form"
+msgstr "formulario de proveedor"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__supplier_invoice
+msgid "supplier invoice"
+msgstr "factura del proveedor"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__transitdr
+msgid "transit to DR"
+msgstr "transito a RD"
+
+#. module: rierba_bl
+#: model:ir.model.fields,field_description:rierba_bl.field_rierba_bl_rierba_bl__transportation_invoice
+msgid "transportation invoice"
+msgstr "factura de transporte"
+
+#. module: rierba_bl
+#: model_terms:ir.ui.view,arch_db:rierba_bl.rierba_bl_form
+msgid "type"
+msgstr "tipo"
+
+#. module: rierba_bl
+#: model:ir.model.fields.selection,name:rierba_bl.selection__purchase_order__state__warehouse
+msgid "warehouse MIAMI"
+msgstr "almacen MIAMI "
+
+#. module: rierba_bl
+#: code:addons/rierba_bl/wizards/group_bl_wizard.py:0
+#, python-format
+msgid "you must select a BL group"
+msgstr "Debe seleccionar un grupo BL"

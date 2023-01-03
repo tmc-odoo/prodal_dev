@@ -1,0 +1,38 @@
+<odoo>
+    <template id="report_invoice_document_rierba" inherit_id="account.report_invoice_document" name="Invoice Document external name">
+        <xpath expr="//span[@t-field='line.name']" position='replace'>
+             <span t-field="line.external_name" t-options="{'widget': 'text'}"/>
+        </xpath>
+    </template>
+ 
+    <record id="rierba_view_account_move_form" model="ir.ui.view">
+         <field name="name">account.move.view.form.rierba.inherit</field>
+         <field name="model">account.move</field>
+         <field name="inherit_id" ref="account.view_move_form"/>
+         <field name="arch" type="xml">
+             <xpath expr="//group[@id='header_right_group']" position="inside">
+                 <field name="is_transit"/>
+             </xpath>
+         </field>
+     </record>
+ 
+     <record id="rierba_view_account_invoice_filter" model="ir.ui.view">
+         <field name="name">rierba.view.account.invoice.filter</field>
+         <field name="model">account.move</field>
+         <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+         <field name="arch" type="xml">
+             <xpath expr="//filter[@name='late']" position="after">
+                 <filter 
+                     name="transit" 
+                     string="Transit" 
+                     domain="[('is_transit', '=', True)]"
+                 />
+                 <filter 
+                     name="not_transit" 
+                     string="Not Transit" 
+                     domain="[('is_transit', '=', False)]"
+                 />
+             </xpath>
+         </field>
+     </record>
+ </odoo>

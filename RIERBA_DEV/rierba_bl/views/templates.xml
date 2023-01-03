@@ -1,0 +1,147 @@
+<odoo>
+  <record id="rierba_bl_action" model="ir.actions.act_window">
+    <field name="name">BL group</field>
+    <field name="res_model">rierba_bl.rierba_bl</field>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+  
+  <record id="rierba_bl_tree" model="ir.ui.view">
+    <field name="name">rierba_bl.rierba_bl.tree</field>
+    <field name="model">rierba_bl.rierba_bl</field>
+    <field name="arch" type="xml">
+      <tree string="Channel">
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="rierba_bl_form" model="ir.ui.view">
+    <field name="name">rierba_bl.rierba_bl.form</field>
+    <field name="model">rierba_bl.rierba_bl</field>
+    <field name="arch" type="xml">
+      <form string="Test">
+        <sheet>
+          <group>
+            <h1>
+              <field name="name"/>
+            </h1>
+          </group>
+
+          <group>
+            <group>
+              <field name="supplier_invoice" />
+              <field name="packing_list"/>
+              <field name="certificate_origin"/>
+              <field name="bill_lading"/>
+              <field name="insurance_Policy"/>
+              <field name="supplier_form"/>
+            </group>
+
+            <group>
+              <field name="invoice_expenses"/>
+              <field name="transportation_invoice"/>
+              <field name="freight_bill"/>
+              <field name="customs_invoice"/>
+              <field name="phytosanitary_certificate"/>
+            </group>
+          </group>
+
+          <notebook>
+            <page string="lineas">
+              <field name="purchase_ids">
+                <tree string="type">
+                  <field name="priority" optional="show" widget="priority" nolabel="1"/>
+                  <field name="message_unread" invisible="1"/>
+                  <field name="partner_ref" optional="hide"/>
+                  <field name="name" string="Reference" readonly="1" decoration-bf="1"/>
+                  <field name="date_approve" widget="date" invisible="context.get('quotation_only', False)" optional="show"/>
+                  <field name="partner_id"/>
+                  <field name="incoterm_id"/>
+                  <field name="shipment"/>
+                  <field name="factory_ready"/>
+                  <field name="etd"/>
+                  <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}" optional="show"/>
+                  <field name="date_planned" invisible="context.get('quotation_only', False)" optional="show"/>
+                  <field name="rierba_bl_id" />
+                  <field name="user_id" widget="many2one_avatar_user" optional="show"/>
+                  <field name="date_order" invisible="not context.get('quotation_only', False)" optional="show"/>
+                  <field name="activity_ids" widget="list_activity" optional="show"/>
+                  <field name="origin" optional="show"/>
+                  <field name="amount_untaxed" sum="Total Untaxed amount" string="Untaxed" widget="monetary" optional="hide"/>
+                  <field name="amount_total" sum="Total amount" widget="monetary" optional="show" decoration-bf="1"/>
+                  <field name="currency_id" invisible="1"/>
+                  <field name="state" invisible="1"/>
+                  <field name="invoice_status" widget="badge" decoration-success="invoice_status == 'invoiced'" decoration-info="invoice_status == 'to invoice'" optional="show"/>
+                </tree>
+              </field>
+            </page>
+
+            <page string="Facturas">
+              <field name="invoice_ids">
+                <tree string="type">
+                  <field name="name" decoration-bf="1" on_change="1" modifiers="{}"/>
+                  <field name="partner_id" invisible="1" on_change="1" can_create="true" can_write="true" modifiers="{'readonly':[['state','not in',['draft']]],'column_invisible':true}"/>
+                  <field name="invoice_source_email" invisible="1" on_change="1" modifiers="{'column_invisible':true}"/>
+                  <field name="invoice_partner_display_name" invisible="context.get('default_move_type') not in ('in_invoice', 'in_refund','in_receipt')" string="Proveedor" modifiers="{'readonly':true,'column_invisible':false}"/>
+                  <field name="invoice_partner_display_name" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" string="Cliente" modifiers="{'readonly':true,'column_invisible':true}"/>
+                  <field name="invoice_date" optional="show" invisible="context.get('default_move_type') not in ('in_invoice', 'in_refund','in_receipt')" string="Fecha factura" on_change="1" modifiers="{'readonly':[['state','not in',['draft']]],'column_invisible':false}"/>
+                  <field name="invoice_date" optional="show" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" string="Fecha de factura" on_change="1" modifiers="{'readonly':[['state','not in',['draft']]],'column_invisible':true}"/>
+                  <field name="invoice_date_due" widget="remaining_days" optional="show" attrs="{'invisible': [['payment_state', 'in', ('paid', 'in_payment', 'reversed')]]}" on_change="1" modifiers="{'invisible':[['payment_state','in',['paid','in_payment','reversed']]],'readonly':[['state','not in',['draft']]]}"/>
+                  <field name="invoice_origin" optional="hide" string="Documento origen" modifiers="{'readonly':true}"/>
+                  <field name="payment_reference" optional="hide" invisible="context.get('default_move_type') in ('out_invoice', 'out_refund','out_receipt')" on_change="1" modifiers="{'column_invisible':false}"/>
+                  <field name="ref" optional="show" modifiers="{}"/>
+                  <field name="invoice_user_id" optional="hide" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" string="Comercial" widget="many2one_avatar_user" on_change="1" can_create="true" can_write="true" modifiers="{'column_invisible':true}"/>
+                  <field name="team_id" invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund','out_receipt')" optional="hide" can_create="true" can_write="true" modifiers="{'column_invisible':true}"/>
+                  <field name="activity_ids" widget="list_activity" optional="show" modifiers="{}"/>
+                  <field name="company_id" options="{'no_create': True}" optional="show" on_change="1" can_create="true" can_write="true" invisible="1" modifiers="{'invisible':true,'readonly':true,'column_invisible':true}"/>
+                  <field name="amount_untaxed_signed" string="Impuestos no incluidos" sum="Total" optional="show" modifiers="{'readonly':true}"/>
+                  <field name="amount_tax_signed" string="Impuesto" sum="Total" optional="hide" modifiers="{'readonly':true}"/>
+                  <field name="amount_total_signed" string="Total" sum="Total" decoration-bf="1" optional="show" modifiers="{'readonly':true}"/>
+                  <field name="amount_residual_signed" string="Importe adeudado" sum="Importe adeudado" optional="hide" modifiers="{'readonly':true}"/>
+                  <field name="currency_id" invisible="1" on_change="1" can_create="true" can_write="true" modifiers="{'readonly':[['state','not in',['draft']]],'required':true,'column_invisible':true}"/>
+                  <field name="company_currency_id" invisible="1" can_create="true" can_write="true" modifiers="{'readonly':true,'column_invisible':true}"/>
+                  <field name="state" widget="badge" decoration-success="state == 'posted'" decoration-info="state == 'draft'" optional="show" on_change="1" modifiers="{'readonly':true,'required':true}"/>
+                  <field name="payment_state" widget="badge" decoration-danger="payment_state == 'not_paid'" decoration-warning="payment_state in ('partial', 'in_payment')" decoration-success="payment_state in ('paid', 'reversed')" attrs="{'invisible': [('payment_state', 'in', ('invoicing_legacy'))]}" optional="hide" modifiers="{'invisible':[['payment_state','in','invoicing_legacy']],'readonly':true}"/>
+                  <field name="move_type" invisible="context.get('default_move_type', True)" on_change="1" modifiers="{'readonly':true,'required':true,'column_invisible':true}"/>
+                </tree>
+              </field>
+            </page>
+
+
+
+
+            <page string="Documentos">
+
+            <group>
+              <group><field name="supplier_doc"/></group>
+              <group><field name="packing_doc"/></group>
+              <group><field name="certificate_doc"/></group>
+              <group><field name="bill_doc"/></group>
+              <group><field name="insurance_doc"/></group>
+              <group><field name="supplier_form_doc"/></group>
+            </group>
+
+            <group>
+              <group><field name="invoice_doc"/></group>
+              <group><field name="transportation_doc"/></group>
+              <group><field name="freight_doc"/></group>              
+              <group><field name="customs_doc"/></group>
+              <group><field name="phytosanitary_doc"/></group>
+            </group>
+
+            </page>            
+          </notebook>
+
+        </sheet>
+
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="activity_ids" widget="mail_activity"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+
+      </form>
+    </field>
+  </record>
+  <menuitem id="menu_rierba_bl" name="BL group" parent="purchase.menu_purchase_root" action="rierba_bl_action" sequence="99"/>
+</odoo>

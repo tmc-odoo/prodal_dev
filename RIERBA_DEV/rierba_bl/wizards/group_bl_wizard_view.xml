@@ -1,0 +1,25 @@
+<odoo>
+    <record id="add_group_bl_view_form" model="ir.ui.view">
+        <field name="name">add.group.bl.form</field>
+        <field name="model">rierba_bl.addbl</field>
+        <field name="arch" type="xml">
+            <form string="Lost Reason">
+                <group class="oe_title">
+                    <field name="group_bl_id" />
+                </group>
+                <footer>
+                    <button name="action_add_fields" string="Submit" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="add_group_bl_action" model="ir.actions.act_window">
+        <field name="name">add group bl</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rierba_bl.addbl</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="add_group_bl_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

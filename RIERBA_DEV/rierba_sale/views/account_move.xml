@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+    <record id="rierba_invoice_form" model="ir.ui.view">
+      <field name="name">rierba.invoice.form</field>
+      <field name="model">account.move</field>
+      <field name="inherit_id" ref="account.view_move_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="after">
+            <field name="sold_by_weight" invisible="1"/>
+            <field name="price_per_weight" readonly="0"/>
+            <field name="product_weight" readonly="0"/>
+          </xpath>
+          <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="attributes">
+            <attribute name="attrs">
+              {'readonly': [('sold_by_weight', '=', True)]}
+            </attribute>
+          </xpath>
+          <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='quantity']" position="attributes">
+            <attribute name="attrs">
+              {'readonly': [('sold_by_weight', '=', True)]}
+            </attribute>
+          </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -1,0 +1,103 @@
+<odoo>
+  <record id="purchase_order_bl_form_inherit" model="ir.ui.view">
+    <field name="name">purchase.order.bl.form.inherit</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="///group/group[2]" position="inside">
+        <field name="factory_ready"/>
+        <field name="etd"/>
+        <field name="rierba_bl_id" />
+        <field name="incoterm_id"/>
+        <field name="shipment"/>
+      </xpath>
+      <xpath expr="//field[@name='state']" position="replace">
+        <field name="state" widget="statusbar" statusbar_visible="draft,sent,purchase,produ,petai,ready,coordinating,transitmiami,warehouse,transitdr,customs,France,duarte,account" readonly="1"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="purchase_order_bl_inherit" model="ir.ui.view">
+    <field name="name">purchase.order.bl.inherit</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase_stock.purchase_order_view_form_inherit"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='incoterm_id']" position="replace">
+        <field name="incoterm_id" invisible="1" />
+      </xpath>
+    </field>
+  </record>
+
+  <record id="purchase_order_bl_tree_inherit" model="ir.ui.view">
+    <field name="name">purchase.order.bl.tree.inherit</field>
+    <field name="model">purchase.order</field>
+    <field name="inherit_id" ref="purchase.purchase_order_view_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="incoterm_id"/>
+        <field name="shipment"/>
+        <field name="factory_ready"/>
+        <field name="etd"/>
+      </xpath>
+
+      <xpath expr="//field[@name='user_id']" position="replace">
+        <field name="user_id" optional="hide"/>
+      </xpath>
+
+      <xpath expr="//field[@name='activity_ids']" position="replace">
+        <field name="activity_ids" optional="hide"/>
+      </xpath>
+
+      <xpath expr="//field[@name='origin']" position="replace">
+        <field name="origin" optional="hide"/>
+      </xpath>
+
+      <xpath expr="//field[@name='amount_untaxed']" position="replace">
+        <field name="amount_untaxed" optional="hide"/>
+      </xpath>
+
+      <xpath expr="//field[@name='date_planned']" position="after">
+        <field name="rierba_bl_id" />
+      </xpath>
+
+      <xpath expr="//field[@name='state']" position="replace">
+        <field name="state" invisible="0" readonly="0"/>
+        <button name="action_read_purchase" type="object" string="Setup" class="float-right btn-secondary"/>
+      </xpath>
+
+      <xpath expr="//tree" position="attributes">
+        <attribute name="editable">top</attribute>
+      </xpath>
+    </field>
+  </record>
+
+  <record id="purchase.purchase_form_action" model="ir.actions.act_window">
+    <field name="domain">[('state','in',('purchase', 'done','produ','petai','ready','coordinating','transitmiami','warehouse','transitdr','customs','france','duarte','account'))]</field>
+  </record>
+
+  <record id="action_create_bl_group" model="ir.actions.server">
+    <field name="name">Create BL group</field>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name='groups_id' eval="[(4, ref('rierba_bl.group_purchase_BL'))]"/>
+    <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+    <field name="state">code</field>
+    <field name="code">
+        if records:
+            action = records.create_bl_group()
+    </field>
+  </record>
+
+  <record id="action_add_bl_group" model="ir.actions.server">
+    <field name="name">Add BL group</field>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name='groups_id' eval="[(4, ref('rierba_bl.group_purchase_BL'))]"/>
+    <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+    <field name="state">code</field>
+    <field name="code">
+        if records:
+            action = records.add_bl_group()
+    </field>
+  </record>
+
+
+</odoo>
